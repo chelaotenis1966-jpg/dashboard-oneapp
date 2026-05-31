@@ -23,6 +23,7 @@
         .bloque-label { font-size: 9px; color: #666; text-transform: uppercase; letter-spacing: 0.3px; font-weight: 600; }
         .bloque-valor { font-size: 16px; font-weight: 700; color: var(--primary); }
         .bloque-fila.success .bloque-valor { color: var(--success); }
+        .footer-note { margin-top: 10px; padding-top: 8px; border-top: 1px solid #e0e0e0; font-size: 8px; color: #999; text-align: center; }
         .table-wrapper { flex: 1; overflow-y: auto; }
         .clientes-table { width: 100%; border-collapse: collapse; font-size: 10px; }
         .clientes-table tr { border-bottom: 1px solid #e0e0e0; }
@@ -40,6 +41,7 @@
         .leyenda-item { display: flex; align-items: center; gap: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .leyenda-color { width: 8px; height: 8px; border-radius: 1px; flex-shrink: 0; }
         .leyenda-label { color: #333; font-size: 8px; overflow: hidden; text-overflow: ellipsis; }
+        .card-graficos-titulo { font-size: 13px; font-weight: 700; color: #333; margin-bottom: 15px; padding-bottom: 10px; }
     </style>
 </head>
 <body>
@@ -104,6 +106,7 @@
     </div>
 
     <div class="card-graficos">
+        <div class="card-graficos-titulo">📊 VENTA POR PAÍS — POR TIPO DE VENTA — POR TAMAÑO DE EMPRESA</div>
         <div class="graficos-container">
             <div class="grafico-wrapper">
                 <div class="grafico-titulo">📍 Por País</div>
@@ -269,6 +272,7 @@
         renderMetricas();
         renderTabla();
         renderGraficos();
+        setInterval(() => location.reload(), 5000);
     </script>
 </body>
 </html>
