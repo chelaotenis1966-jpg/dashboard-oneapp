@@ -1,14 +1,5 @@
-Aquí va **TODO el HTML COMPLETO y correcto**. Cópialo de una sola vez:
-
 ```html
 <!DOCTYPE html>
-<script type="application/json" id="cowork-artifact-meta">
-{
-  "name": "Dashboard Presupuesto Mayo 2026",
-  "schemaVersion": 1,
-  "description": "Dashboard interactivo presupuesto, clientes y embudo de ventas - Mayo 2026 OneApp"
-}
-</script>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -38,9 +29,9 @@ Aquí va **TODO el HTML COMPLETO y correcto**. Cópialo de una sola vez:
         th { background: #f0f0f0; font-weight: 700; padding: 6px; border: 1px solid #ddd; text-align: left; font-size: 9px; }
         td { padding: 4px; border: 1px solid #eee; }
         .graficos { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-bottom: 30px; }
-        .grafico { background: white; border-radius: 8px; padding: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.08); border-top: 3px solid #0066cc; }
-        .grafico-titulo { text-align: center; font-size: 11px; font-weight: 700; color: #0066cc; margin-bottom: 8px; }
-        .chart-container { position: relative; height: 200px; margin-bottom: 12px; }
+        .grafico { background: white; border-radius: 8px; padding: 12px; box-shadow: 0 2px 4px rgba(0,0,0,0.08); border-top: 3px solid #0066cc; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: start; }
+        .grafico-titulo { text-align: center; font-size: 11px; font-weight: 700; color: #0066cc; margin-bottom: 8px; grid-column: 1 / -1; }
+        .chart-container { position: relative; height: 180px; }
         .leyenda { display: grid; grid-template-columns: 1fr; gap: 4px; font-size: 8px; }
         .leyenda-item { display: flex; gap: 3px; align-items: center; }
         .color { width: 8px; height: 8px; border-radius: 2px; }
@@ -73,7 +64,7 @@ Aquí va **TODO el HTML COMPLETO y correcto**. Cópialo de una sola vez:
 <body>
     <div class="container">
         <h1>📊 Dashboard Presupuesto 2026</h1>
-        
+
         <div class="layout-2col">
             <div>
                 <div class="section-title">💼 Métricas Presupuestarias</div>
@@ -145,7 +136,7 @@ Aquí va **TODO el HTML COMPLETO y correcto**. Cópialo de una sola vez:
                 </div>
             </div>
         </div>
-        
+
         <div class="section-title">📊 Análisis de Venta (sobre 426 UF)</div>
         <div class="graficos">
             <div class="grafico">
@@ -164,7 +155,7 @@ Aquí va **TODO el HTML COMPLETO y correcto**. Cópialo de una sola vez:
                 <div class="leyenda" id="leyendaTamaño"></div>
             </div>
         </div>
-        
+
         <div class="section-title">🎯 Embudo de Venta</div>
         <div class="embudo">
             <div class="embudo-content">
