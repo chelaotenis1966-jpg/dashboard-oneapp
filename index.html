@@ -1,3 +1,6 @@
+Aquí va **TODO el HTML COMPLETO y correcto**. Cópialo de una sola vez:
+
+```html
 <!DOCTYPE html>
 <script type="application/json" id="cowork-artifact-meta">
 {
@@ -128,4 +131,142 @@
                         <tr><td style="color: #0066cc; font-weight: 500;">CLIENTE</td><td>SURTIDORA DEPARTAMENTAL</td><td style="text-align: right; font-weight: 600;">30</td><td>MEXICO</td></tr>
                         <tr><td style="color: #0066cc; font-weight: 500;">CLIENTE</td><td>PRIME COMMS</td><td style="text-align: right; font-weight: 600;">130</td><td>MEXICO</td></tr>
                         <tr style="background: #f9f9f9;"><td colspan="2"></td><td style="text-align: right; font-weight: 700;">344</td><td></td></tr>
-                        <tr style="background: #e8f1ff;"><td colspan="4" style="font-weight: 700; padding: 8px;">
+                        <tr style="background: #e8f1ff;"><td colspan="4" style="font-weight: 700; padding: 8px;">CRUCE</td></tr>
+                        <tr><td style="color: #0066cc; font-weight: 500;">CRUCE</td><td>EL ROSADO</td><td style="text-align: right; font-weight: 600;">9</td><td>ECUADOR</td></tr>
+                        <tr><td style="color: #0066cc; font-weight: 500;">CRUCE</td><td>EUROSUPERMERCADO</td><td style="text-align: right; font-weight: 600;">10</td><td>COLOMBIA</td></tr>
+                        <tr style="background: #f9f9f9;"><td colspan="2"></td><td style="text-align: right; font-weight: 700;">19</td><td></td></tr>
+                        <tr style="background: #e8f1ff;"><td colspan="4" style="font-weight: 700; padding: 8px;">EXTENSIÓN</td></tr>
+                        <tr><td style="color: #0066cc; font-weight: 500;">EXTENSIÓN</td><td>OXXO AMERICA</td><td style="text-align: right; font-weight: 600;">32</td><td>MEXICO</td></tr>
+                        <tr><td style="color: #0066cc; font-weight: 500;">EXTENSIÓN</td><td>BARA</td><td style="text-align: right; font-weight: 600;">10</td><td>MEXICO</td></tr>
+                        <tr><td style="color: #0066cc; font-weight: 500;">EXTENSIÓN</td><td>D1</td><td style="text-align: right; font-weight: 600;">21</td><td>COLOMBIA</td></tr>
+                        <tr style="background: #f9f9f9;"><td colspan="2"></td><td style="text-align: right; font-weight: 700;">63</td><td></td></tr>
+                        <tr style="background: #e8f1ff;"><td colspan="2" style="font-weight: 700;">TOTAL</td><td style="text-align: right; font-weight: 700;">426</td><td></td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section-title">📊 Análisis de Venta (sobre 426 UF)</div>
+        <div class="graficos">
+            <div class="grafico">
+                <div class="grafico-titulo">Por País</div>
+                <div class="chart-container"><canvas id="chartPais"></canvas></div>
+                <div class="leyenda" id="leyendaPais"></div>
+            </div>
+            <div class="grafico">
+                <div class="grafico-titulo">Por Tipo</div>
+                <div class="chart-container"><canvas id="chartTipo"></canvas></div>
+                <div class="leyenda" id="leyendaTipo"></div>
+            </div>
+            <div class="grafico">
+                <div class="grafico-titulo">Por Tamaño</div>
+                <div class="chart-container"><canvas id="chartTamaño"></canvas></div>
+                <div class="leyenda" id="leyendaTamaño"></div>
+            </div>
+        </div>
+        
+        <div class="section-title">🎯 Embudo de Venta</div>
+        <div class="embudo">
+            <div class="embudo-content">
+                <div class="embudo-stage"><div class="embudo-bar" style="background: #0066cc; width: 100%;"><span>🎯 Reuniones</span><div class="stage-info"><span class="stage-num">123</span><span class="stage-pct">100.0%</span></div></div></div>
+                <div class="embudo-stage"><div class="embudo-bar" style="background: #0052a3; width: 80%;"><span>✅ Calificados</span><div class="stage-info"><span class="stage-num">37</span><span class="stage-pct">30.1%</span></div></div></div>
+                <div class="embudo-stage"><div class="embudo-bar" style="background: #003d7a; width: 64%;"><span>🚀 Próx. Piloto</span><div class="stage-info"><span class="stage-num">7</span><span class="stage-pct">5.7%</span></div></div></div>
+                <div class="embudo-stage"><div class="embudo-bar" style="background: #002d5c; width: 51.2%;"><span>📍 Próx. Cliente</span><div class="stage-info"><span class="stage-num">4</span><span class="stage-pct">3.3%</span></div></div></div>
+                <div class="embudo-stage"><div class="embudo-bar" style="background: #001d3d; width: 40.96%;"><span>⚙️ Piloto OK</span><div class="stage-info"><span class="stage-num">3</span><span class="stage-pct">2.4%</span></div></div></div>
+                <div class="embudo-stage"><div class="embudo-bar" style="background: #001428; width: 35%;"><span>🏆 Clientes</span><div class="stage-info"><span class="stage-num">8</span><span class="stage-pct">6.5%</span></div></div></div>
+            </div>
+        </div>
+
+        <div class="section-title">📊 Conversiones</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-bottom: 30px;">
+            <div class="card">
+                <div class="card-title">Conversión Clientes</div>
+                <div class="conversion-metric"><span class="label">Clientes:</span><span class="value">8</span></div>
+                <div class="conversion-metric"><span class="label">Reuniones:</span><span class="value">123</span></div>
+                <div class="conversion-metric success"><span class="label">Conversión:</span><span class="value">6.5%</span></div>
+                <div class="mini-card">
+                    <div class="mini-card-title">Conversión Clientes 2025</div>
+                    <div class="mini-card-value"><span>Conversión:</span><span>4.0%</span></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Conv. Clientes + Pilotos</div>
+                <div class="conversion-metric"><span class="label">Clientes + Pilotos:</span><span class="value">11</span></div>
+                <div class="conversion-metric"><span class="label">Reuniones:</span><span class="value">123</span></div>
+                <div class="conversion-metric success"><span class="label">Conversión:</span><span class="value">8.9%</span></div>
+                <div class="mini-card">
+                    <div class="mini-card-title">Conversión Clientes + Pilotos 2025</div>
+                    <div class="mini-card-value"><span>Conversión:</span><span>6.2%</span></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">Conversión Decisional</div>
+                <div class="conversion-metric"><span class="label">Clientes + Pilotos + Por Decidir:</span><span class="value">22</span></div>
+                <div class="conversion-metric"><span class="label">Reuniones:</span><span class="value">123</span></div>
+                <div class="conversion-metric success"><span class="label">Conversión:</span><span class="value">17.9%</span></div>
+            </div>
+        </div>
+
+        <div class="section-title">📋 Próximos Leads Cercanos</div>
+        <div class="detalle-cards">
+            <div class="detalle-card">
+                <div class="detalle-titulo">✅ Calificados Hoy (15)</div>
+                <div class="detalle-item"><span class="detalle-nombre">FASA</span><span class="detalle-pais">CHILE</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">NUTRISA</span><span class="detalle-pais">MEXICO</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">BSG</span><span class="detalle-pais">PERU</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">SANTORI</span><span class="detalle-pais">MEXICO</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">TIENDAS ATLETICOS</span><span class="detalle-pais">MEXICO</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">FERRIONI</span><span class="detalle-pais">MEXICO</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">BIX</span><span class="detalle-pais">CHILE</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">HOME SENTRY</span><span class="detalle-pais">COLOMBIA</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">DERMOTIENDAS</span><span class="detalle-pais">PERU</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">PHARMOR</span><span class="detalle-pais">COLOMBIA</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">TEX SUPERTIENDAS</span><span class="detalle-pais">MEXICO</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">LOB</span><span class="detalle-pais">MEXICO</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">SANTA ELENA</span><span class="detalle-pais">PERU</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">COLOMBIA FARMA</span><span class="detalle-pais">COLOMBIA</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">MERCALDAS</span><span class="detalle-pais">COLOMBIA</span></div>
+            </div>
+
+            <div class="detalle-card">
+                <div class="detalle-titulo">🚀 Próx. Pilotos (7)</div>
+                <div class="detalle-item"><span class="detalle-nombre">ALMACENES BRISA</span><span class="detalle-pais">COLOMBIA</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">KIOSKO</span><span class="detalle-pais">MEXICO</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">FOOTLOSE</span><span class="detalle-pais">PERU</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">SURTIFAMILIAR</span><span class="detalle-pais">COLOMBIA</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">RENZO COSTA</span><span class="detalle-pais">PERU</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">TIENDAS GARCES</span><span class="detalle-pais">MEXICO</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">ATHELTICS</span><span class="detalle-pais">PERU</span></div>
+            </div>
+
+            <div class="detalle-card">
+                <div class="detalle-titulo">📍 Próx. Clientes (4)</div>
+                <div class="detalle-item"><span class="detalle-nombre">COOLBOX</span><span class="detalle-pais">PERU</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">ERBI</span><span class="detalle-pais">CHILE</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">DISLICORES</span><span class="detalle-pais">COLOMBIA</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">CARTERS</span><span class="detalle-pais">MEXICO</span></div>
+            </div>
+
+            <div class="detalle-card">
+                <div class="detalle-titulo">⚙️ Pilotos OK (3)</div>
+                <div class="detalle-item"><span class="detalle-nombre">SIFRAH</span><span class="detalle-pais">PERU</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">MUEBLES JAMAR</span><span class="detalle-pais">COLOMBIA</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">TIENDAS ARA</span><span class="detalle-pais">COLOMBIA</span></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const colors5 = ['#0066cc', '#00aa00', '#ff6b6b', '#ffd700', '#9b59b6'];
+        const colors3 = ['#0066cc', '#ff6b6b', '#ffd700'];
+        new Chart(document.getElementById('chartPais').getContext('2d'), { type: 'pie', data: { labels: ["CHILE", "COLOMBIA", "ECUADOR", "MEXICO", "PERU"], datasets: [{ data: [46.0, 31.07, 9.0, 202.01, 138.0], backgroundColor: colors5 }] }, options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { display: false } } }, plugins: [{ id: 'textCenter', beforeDatasetsDraw(chart) { const { chartArea: { left, top, width, height }, ctx } = chart; ctx.save(); const data = chart.data.datasets[0].data; const sum = data.reduce((a, b) => a + b, 0); chart.getDatasetMeta(0).data.forEach((_, i) => { const pct = ((data[i] / sum) * 100).toFixed(1); const angle = (chart.getDatasetMeta(0).data[i].$context.startAngle + chart.getDatasetMeta(0).data[i].$context.endAngle) / 2; const x = left + width / 2 + Math.cos(angle - Math.PI / 2) * (width / 4); const y = top + height / 2 + Math.sin(angle - Math.PI / 2) * (height / 4); ctx.fillStyle = 'white'; ctx.font = 'bold 10px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(pct + '%', x, y); }); ctx.restore(); } }] });
+        let html = ''; ["CHILE", "COLOMBIA", "ECUADOR", "MEXICO", "PERU"].forEach((l, i) => { const val = [46.0, 31.07, 9.0, 202.01, 138.0][i]; const pct = (val / 426 * 100).toFixed(1); html += `<div class="leyenda-item"><div class="color" style="background: ${colors5[i]}"></div><span>${l} - ${Math.round(val)} (${pct}%)</span></div>`; }); document.getElementById('leyendaPais').innerHTML = html;
+        new Chart(document.getElementById('chartTipo').getContext('2d'), { type: 'pie', data: { labels: ["CLIENTE", "CRUCE", "EXTENSION"], datasets: [{ data: [344.0, 19.0, 63.07], backgroundColor: colors3 }] }, options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { display: false } } }, plugins: [{ id: 'textCenter', beforeDatasetsDraw(chart) { const { chartArea: { left, top, width, height }, ctx } = chart; ctx.save(); const data = chart.data.datasets[0].data; const sum = data.reduce((a, b) => a + b, 0); chart.getDatasetMeta(0).data.forEach((_, i) => { const pct = ((data[i] / sum) * 100).toFixed(1); const angle = (chart.getDatasetMeta(0).data[i].$context.startAngle + chart.getDatasetMeta(0).data[i].$context.endAngle) / 2; const x = left + width / 2 + Math.cos(angle - Math.PI / 2) * (width / 4); const y = top + height / 2 + Math.sin(angle - Math.PI / 2) * (height / 4); ctx.fillStyle = 'white'; ctx.font = 'bold 10px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(pct + '%', x, y); }); ctx.restore(); } }] });
+        html = ''; ["CLIENTE", "CRUCE", "EXTENSION"].forEach((l, i) => { const val = [344.0, 19.0, 63.07][i]; const pct = (val / 426 * 100).toFixed(1); html += `<div class="leyenda-item"><div class="color" style="background: ${colors3[i]}"></div><span>${l} - ${Math.round(val)} (${pct}%)</span></div>`; }); document.getElementById('leyendaTipo').innerHTML = html;
+        new Chart(document.getElementById('chartTamaño').getContext('2d'), { type: 'pie', data: { labels: ["L", "S y M", "XL"], datasets: [{ data: [156.0, 18.0, 252.07], backgroundColor: colors3 }] }, options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { display: false } } }, plugins: [{ id: 'textCenter', beforeDatasetsDraw(chart) { const { chartArea: { left, top, width, height }, ctx } = chart; ctx.save(); const data = chart.data.datasets[0].data; const sum = data.reduce((a, b) => a + b, 0); chart.getDatasetMeta(0).data.forEach((_, i) => { const pct = ((data[i] / sum) * 100).toFixed(1); const angle = (chart.getDatasetMeta(0).data[i].$context.startAngle + chart.getDatasetMeta(0).data[i].$context.endAngle) / 2; const x = left + width / 2 + Math.cos(angle - Math.PI / 2) * (width / 4); const y = top + height / 2 + Math.sin(angle - Math.PI / 2) * (height / 4); ctx.fillStyle = 'white'; ctx.font = 'bold 10px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(pct + '%', x, y); }); ctx.restore(); } }] });
+        html = ''; ["L", "S y M", "XL"].forEach((l, i) => { const val = [156.0, 18.0, 252.07][i]; const pct = (val / 426 * 100).toFixed(1); html += `<div class="leyenda-item"><div class="color" style="background: ${colors3[i]}"></div><span>${l} - ${Math.round(val)} (${pct}%)</span></div>`; }); document.getElementById('leyendaTamaño').innerHTML = html;
+    </script>
+</body>
+</html>
