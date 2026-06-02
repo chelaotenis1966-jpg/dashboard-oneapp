@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<script type="application/json" id="cowork-artifact-meta">
+{
+  "name": "Dashboard Presupuesto Mayo 2026",
+  "schemaVersion": 1,
+  "description": "Dashboard interactivo presupuesto, clientes y embudo de ventas - Junio 2026 OneApp. Datos parametricos extraídos automáticamente del Excel."
+}
+</script>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -49,14 +56,12 @@
         .conversion-metric { padding: 2px 0; background: transparent; border: none; display: flex; flex-direction: row; align-items: center; justify-content: space-between; gap: 6px; }
         .conversion-metric .label { font-size: 18px; color: #666; font-weight: 700; flex: 1; }
         .conversion-metric .value { font-size: 26px; font-weight: 700; color: #0066cc; }
-        .conversion-metric.success { }
         .conversion-metric.success .label { color: #00aa00; }
         .conversion-metric.success .value { color: #00aa00; }
         .mini-card { background: #f5f5f5; padding: 4px 8px; border-radius: 4px; border-left: 2px solid #0066cc; font-size: 16px; margin-top: 3px; display: flex; justify-content: space-between; align-items: center; }
-        .mini-card-title { color: #666; font-weight: 600; margin-bottom: 0; }
-        .mini-card-value { display: flex; align-items: center; color: #ff4444; font-weight: 700; }
+        .mini-card-value { color: #ff4444; font-weight: 700; }
         .detalle-cards { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; margin-top: 20px; margin-bottom: 30px; }
-        .detalle-card { background: white; border-radius: 6px; padding: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); border-top: 2px solid #0066cc; }
+        .detalle-card { background: white; border-radius: 6px; padding: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); border-top: 2px solid #0066cc; max-height: 400px; overflow-y: auto; }
         .detalle-titulo { font-size: 20px; font-weight: 700; color: #0066cc; margin-bottom: 8px; text-transform: uppercase; }
         .detalle-item { font-size: 16px; padding: 3px 0; border-bottom: 1px solid #f0f0f0; display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center; }
         .detalle-item:last-child { border-bottom: none; }
@@ -66,7 +71,11 @@
 </head>
 <body>
     <div class="container">
-        <h1>📊 Dashboard Presupuesto 2026</h1>
+        <h1>📊 Dashboard Presupuesto 2026 - Junio 2026</h1>
+        <div style="text-align: center; color: #666; font-size: 14px; margin-bottom: 20px;">
+            <strong>Fecha última actualización:</strong> 1 de junio del 2026 - 22:13 PM
+        </div>
+
         <div class="layout-2col">
             <div>
                 <div class="section-title">💼 Métricas Presupuestarias</div>
@@ -114,32 +123,29 @@
                 <div class="tabla">
                     <table>
                         <tr><th>TIPO</th><th>CLIENTE</th><th style="text-align: right;">UF</th><th>PAÍS</th></tr>
-                        <tr style="background: #e8f1ff;"><td colspan="4" style="font-weight: 700; padding: 8px;">CLIENTE</td></tr>
-                        <tr><td style="color: #0066cc; font-weight: 500;">CLIENTE</td><td>REPSOL</td><td style="text-align: right; font-weight: 600;">50</td><td>PERU</td></tr>
-                        <tr><td style="color: #0066cc; font-weight: 500;">CLIENTE</td><td>SALESLAND MOAI</td><td style="text-align: right; font-weight: 600;">15</td><td>PERU</td></tr>
-                        <tr><td style="color: #0066cc; font-weight: 500;">CLIENTE</td><td>KITCHEN CENTER</td><td style="text-align: right; font-weight: 600;">18</td><td>CHILE</td></tr>
-                        <tr><td style="color: #0066cc; font-weight: 500;">CLIENTE</td><td>MINISO</td><td style="text-align: right; font-weight: 600;">23</td><td>PERU</td></tr>
-                        <tr><td style="color: #0066cc; font-weight: 500;">CLIENTE</td><td>SAN CAMILO</td><td style="text-align: right; font-weight: 600;">28</td><td>CHILE</td></tr>
-                        <tr><td style="color: #0066cc; font-weight: 500;">CLIENTE</td><td>RIPLEY PERU</td><td style="text-align: right; font-weight: 600;">50</td><td>PERU</td></tr>
-                        <tr><td style="color: #0066cc; font-weight: 500;">CLIENTE</td><td>SURTIDORA DEPARTAMENTAL</td><td style="text-align: right; font-weight: 600;">30</td><td>MEXICO</td></tr>
-                        <tr><td style="color: #0066cc; font-weight: 500;">CLIENTE</td><td>PRIME COMMS</td><td style="text-align: right; font-weight: 600;">130</td><td>MEXICO</td></tr>
-                        <tr style="background: #f9f9f9;"><td colspan="2"></td><td style="text-align: right; font-weight: 700;">344</td><td></td></tr>
-                        <tr style="background: #e8f1ff;"><td colspan="4" style="font-weight: 700; padding: 8px;">CRUCE</td></tr>
-                        <tr><td style="color: #0066cc; font-weight: 500;">CRUCE</td><td>EL ROSADO</td><td style="text-align: right; font-weight: 600;">9</td><td>ECUADOR</td></tr>
-                        <tr><td style="color: #0066cc; font-weight: 500;">CRUCE</td><td>EUROSUPERMERCADO</td><td style="text-align: right; font-weight: 600;">10</td><td>COLOMBIA</td></tr>
-                        <tr style="background: #f9f9f9;"><td colspan="2"></td><td style="text-align: right; font-weight: 700;">19</td><td></td></tr>
-                        <tr style="background: #e8f1ff;"><td colspan="4" style="font-weight: 700; padding: 8px;">EXTENSIÓN</td></tr>
-                        <tr><td style="color: #0066cc; font-weight: 500;">EXTENSIÓN</td><td>OXXO AMERICA</td><td style="text-align: right; font-weight: 600;">32</td><td>MEXICO</td></tr>
-                        <tr><td style="color: #0066cc; font-weight: 500;">EXTENSIÓN</td><td>BARA</td><td style="text-align: right; font-weight: 600;">10</td><td>MEXICO</td></tr>
-                        <tr><td style="color: #0066cc; font-weight: 500;">EXTENSIÓN</td><td>D1</td><td style="text-align: right; font-weight: 600;">21</td><td>COLOMBIA</td></tr>
-                        <tr style="background: #f9f9f9;"><td colspan="2"></td><td style="text-align: right; font-weight: 700;">63</td><td></td></tr>
-                        <tr style="background: #e8f1ff;"><td colspan="2" style="font-weight: 700;">TOTAL</td><td style="text-align: right; font-weight: 700;">426</td><td></td></tr>
+                        <tr style="background: #e8f1ff;"><td colspan="4" style="font-weight: 700; padding: 8px;">CLIENTE (8) = 344.00 UF</td></tr>
+                        <tr><td style="color: #0066cc; font-weight: 500;">CLIENTE</td><td>REPSOL</td><td style="text-align: right; font-weight: 600;">50.00</td><td>PERU</td></tr>
+                        <tr><td style="color: #0066cc; font-weight: 500;">CLIENTE</td><td>SALESLAND MOAI</td><td style="text-align: right; font-weight: 600;">15.00</td><td>PERU</td></tr>
+                        <tr><td style="color: #0066cc; font-weight: 500;">CLIENTE</td><td>KITCHEN CENTER</td><td style="text-align: right; font-weight: 600;">18.00</td><td>CHILE</td></tr>
+                        <tr><td style="color: #0066cc; font-weight: 500;">CLIENTE</td><td>MINISO</td><td style="text-align: right; font-weight: 600;">23.00</td><td>PERU</td></tr>
+                        <tr><td style="color: #0066cc; font-weight: 500;">CLIENTE</td><td>SAN CAMILO</td><td style="text-align: right; font-weight: 600;">28.00</td><td>CHILE</td></tr>
+                        <tr><td style="color: #0066cc; font-weight: 500;">CLIENTE</td><td>RIPLEY PERU</td><td style="text-align: right; font-weight: 600;">50.00</td><td>PERU</td></tr>
+                        <tr><td style="color: #0066cc; font-weight: 500;">CLIENTE</td><td>SURTIDORA DEPARTAMENTAL</td><td style="text-align: right; font-weight: 600;">30.00</td><td>MEXICO</td></tr>
+                        <tr><td style="color: #0066cc; font-weight: 500;">CLIENTE</td><td>PRIME COMMS</td><td style="text-align: right; font-weight: 600;">130.00</td><td>MEXICO</td></tr>
+                        <tr style="background: #e8f1ff;"><td colspan="4" style="font-weight: 700; padding: 8px;">CRUCE (2) = 19.00 UF</td></tr>
+                        <tr><td style="color: #0066cc; font-weight: 500;">CRUCE</td><td>EL ROSADO</td><td style="text-align: right; font-weight: 600;">9.00</td><td>ECUADOR</td></tr>
+                        <tr><td style="color: #0066cc; font-weight: 500;">CRUCE</td><td>EUROSUPERMERCADO</td><td style="text-align: right; font-weight: 600;">10.00</td><td>COLOMBIA</td></tr>
+                        <tr style="background: #e8f1ff;"><td colspan="4" style="font-weight: 700; padding: 8px;">EXTENSIÓN (3) = 63.07 UF</td></tr>
+                        <tr><td style="color: #0066cc; font-weight: 500;">EXTENSIÓN</td><td>OXXO AMERICA</td><td style="text-align: right; font-weight: 600;">32.00</td><td>MEXICO</td></tr>
+                        <tr><td style="color: #0066cc; font-weight: 500;">EXTENSIÓN</td><td>BARA</td><td style="text-align: right; font-weight: 600;">10.01</td><td>MEXICO</td></tr>
+                        <tr><td style="color: #0066cc; font-weight: 500;">EXTENSIÓN</td><td>D1</td><td style="text-align: right; font-weight: 600;">21.07</td><td>COLOMBIA</td></tr>
+                        <tr style="background: #e8f1ff;"><td colspan="2" style="font-weight: 700;">TOTAL (13)</td><td style="text-align: right; font-weight: 700;">426.07</td><td></td></tr>
                     </table>
                 </div>
             </div>
         </div>
 
-        <div class="section-title">📊 Análisis de Venta (sobre 426 UF)</div>
+        <div class="section-title">📊 Análisis de Venta (sobre 426.07 UF)</div>
         <div class="graficos">
             <div class="grafico">
                 <div class="grafico-titulo">Por País</div>
@@ -165,12 +171,12 @@
         <div class="embudo-container">
             <div class="embudo">
                 <div class="embudo-content">
-                    <div class="embudo-stage"><div class="embudo-bar" style="background: #0066cc; width: 100%;"><span>🎯 Reuniones</span><div class="stage-info"><span class="stage-num">123</span><span class="stage-pct">100.0%</span></div></div></div>
-                    <div class="embudo-stage"><div class="embudo-bar" style="background: #0052a3; width: 80%;"><span>✅ Calificados</span><div class="stage-info"><span class="stage-num">37</span><span class="stage-pct">30.1%</span></div></div></div>
-                    <div class="embudo-stage"><div class="embudo-bar" style="background: #003d7a; width: 64%;"><span>🚀 Próx. Piloto</span><div class="stage-info"><span class="stage-num">7</span><span class="stage-pct">5.7%</span></div></div></div>
-                    <div class="embudo-stage"><div class="embudo-bar" style="background: #002d5c; width: 51.2%;"><span>📍 Próx. Cliente</span><div class="stage-info"><span class="stage-num">4</span><span class="stage-pct">3.3%</span></div></div></div>
-                    <div class="embudo-stage"><div class="embudo-bar" style="background: #001d3d; width: 40.96%;"><span>⚙️ Piloto OK</span><div class="stage-info"><span class="stage-num">3</span><span class="stage-pct">2.4%</span></div></div></div>
-                    <div class="embudo-stage"><div class="embudo-bar" style="background: #001428; width: 35%;"><span>🏆 Clientes</span><div class="stage-info"><span class="stage-num">8</span><span class="stage-pct">6.5%</span></div></div></div>
+                    <div class="embudo-stage"><div class="embudo-bar" style="background: #0066cc; width: 100%;"><span>🎯 Reuniones</span><div class="stage-info"><span class="stage-num">133</span><span class="stage-pct">100.0%</span></div></div></div>
+                    <div class="embudo-stage"><div class="embudo-bar" style="background: #0052a3; width: 76.7%;"><span>✅ Calificados</span><div class="stage-info"><span class="stage-num">42</span><span class="stage-pct">31.6%</span></div></div></div>
+                    <div class="embudo-stage"><div class="embudo-bar" style="background: #003d7a; width: 68.8%;"><span>🚀 Próx. Piloto</span><div class="stage-info"><span class="stage-num">15</span><span class="stage-pct">11.3%</span></div></div></div>
+                    <div class="embudo-stage"><div class="embudo-bar" style="background: #002d5c; width: 51.1%;"><span>📍 Próx. Cliente</span><div class="stage-info"><span class="stage-num">6</span><span class="stage-pct">4.5%</span></div></div></div>
+                    <div class="embudo-stage"><div class="embudo-bar" style="background: #001d3d; width: 36%;"><span>⚙️ Piloto OK</span><div class="stage-info"><span class="stage-num">4</span><span class="stage-pct">3.0%</span></div></div></div>
+                    <div class="embudo-stage"><div class="embudo-bar" style="background: #001428; width: 27%;"><span>🏆 Clientes</span><div class="stage-info"><span class="stage-num">8</span><span class="stage-pct">6.0%</span></div></div></div>
                 </div>
             </div>
 
@@ -178,79 +184,78 @@
                 <div class="conversion-card">
                     <div class="card-title">Conversión Clientes</div>
                     <div class="conversion-metric"><span class="label">Clientes:</span><span class="value">8</span></div>
-                    <div class="conversion-metric"><span class="label">Reuniones:</span><span class="value">123</span></div>
-                    <div class="conversion-metric success"><span class="label">Conversión:</span><span class="value">6.5%</span></div>
-                    <div class="mini-card">
-                        <span class="mini-card-title">2025:</span>
-                        <span class="mini-card-value">4.0%</span>
-                    </div>
+                    <div class="conversion-metric"><span class="label">Reuniones:</span><span class="value">133</span></div>
+                    <div class="conversion-metric success"><span class="label">Conversión:</span><span class="value">6.0%</span></div>
+                    <div class="mini-card"><span>2025:</span><span class="mini-card-value">4.0%</span></div>
                 </div>
 
                 <div class="conversion-card">
                     <div class="card-title">Conv. Clientes + Pilotos</div>
-                    <div class="conversion-metric"><span class="label">Clientes + Pilotos:</span><span class="value">11</span></div>
-                    <div class="conversion-metric"><span class="label">Reuniones:</span><span class="value">123</span></div>
-                    <div class="conversion-metric success"><span class="label">Conversión:</span><span class="value">8.9%</span></div>
-                    <div class="mini-card">
-                        <span class="mini-card-title">2025:</span>
-                        <span class="mini-card-value">6.2%</span>
-                    </div>
+                    <div class="conversion-metric"><span class="label">Total:</span><span class="value">12</span></div>
+                    <div class="conversion-metric"><span class="label">Reuniones:</span><span class="value">133</span></div>
+                    <div class="conversion-metric success"><span class="label">Conversión:</span><span class="value">9.0%</span></div>
+                    <div class="mini-card"><span>2025:</span><span class="mini-card-value">6.2%</span></div>
                 </div>
 
                 <div class="conversion-card">
                     <div class="card-title">Conversión Decisional</div>
-                    <div class="conversion-metric"><span class="label">Clientes + Pilotos + Por Decidir:</span><span class="value">22</span></div>
-                    <div class="conversion-metric"><span class="label">Reuniones:</span><span class="value">123</span></div>
-                    <div class="conversion-metric success"><span class="label">Conversión:</span><span class="value">17.9%</span></div>
+                    <div class="conversion-metric"><span class="label">Total:</span><span class="value">33</span></div>
+                    <div class="conversion-metric"><span class="label">Reuniones:</span><span class="value">133</span></div>
+                    <div class="conversion-metric success"><span class="label">Conversión:</span><span class="value">24.8%</span></div>
                 </div>
             </div>
         </div>
 
-        <div class="section-title">📋 Próximos Leads Cercanos</div>
+        <div class="section-title">📋 Próximos Leads Cercanos (34 leads)</div>
         <div class="detalle-cards">
             <div class="detalle-card">
-                <div class="detalle-titulo">✅ Calificados Hoy (15)</div>
-                <div class="detalle-item"><span class="detalle-nombre">FASA</span><span class="detalle-pais">CHILE</span></div>
+                <div class="detalle-titulo">✅ Calificados Hoy - 9</div>
                 <div class="detalle-item"><span class="detalle-nombre">NUTRISA</span><span class="detalle-pais">MEXICO</span></div>
                 <div class="detalle-item"><span class="detalle-nombre">BSG</span><span class="detalle-pais">PERU</span></div>
-                <div class="detalle-item"><span class="detalle-nombre">SANTORI</span><span class="detalle-pais">MEXICO</span></div>
                 <div class="detalle-item"><span class="detalle-nombre">TIENDAS ATLETICOS</span><span class="detalle-pais">MEXICO</span></div>
-                <div class="detalle-item"><span class="detalle-nombre">FERRIONI</span><span class="detalle-pais">MEXICO</span></div>
-                <div class="detalle-item"><span class="detalle-nombre">BIX</span><span class="detalle-pais">CHILE</span></div>
                 <div class="detalle-item"><span class="detalle-nombre">HOME SENTRY</span><span class="detalle-pais">COLOMBIA</span></div>
-                <div class="detalle-item"><span class="detalle-nombre">DERMOTIENDAS</span><span class="detalle-pais">PERU</span></div>
                 <div class="detalle-item"><span class="detalle-nombre">PHARMOR</span><span class="detalle-pais">COLOMBIA</span></div>
-                <div class="detalle-item"><span class="detalle-nombre">TEX SUPERTIENDAS</span><span class="detalle-pais">MEXICO</span></div>
                 <div class="detalle-item"><span class="detalle-nombre">LOB</span><span class="detalle-pais">MEXICO</span></div>
-                <div class="detalle-item"><span class="detalle-nombre">SANTA ELENA</span><span class="detalle-pais">PERU</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">ATHELTICS</span><span class="detalle-pais">PERU</span></div>
                 <div class="detalle-item"><span class="detalle-nombre">COLOMBIA FARMA</span><span class="detalle-pais">COLOMBIA</span></div>
                 <div class="detalle-item"><span class="detalle-nombre">MERCALDAS</span><span class="detalle-pais">COLOMBIA</span></div>
             </div>
 
             <div class="detalle-card">
-                <div class="detalle-titulo">🚀 Próx. Pilotos (7)</div>
+                <div class="detalle-titulo">🚀 Próximos Pilotos - 15</div>
                 <div class="detalle-item"><span class="detalle-nombre">ALMACENES BRISA</span><span class="detalle-pais">COLOMBIA</span></div>
-                <div class="detalle-item"><span class="detalle-nombre">KIOSKO</span><span class="detalle-pais">MEXICO</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">FASA</span><span class="detalle-pais">CHILE</span></div>
                 <div class="detalle-item"><span class="detalle-nombre">FOOTLOSE</span><span class="detalle-pais">PERU</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">KIOSKO</span><span class="detalle-pais">MEXICO</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">SANTORI</span><span class="detalle-pais">MEXICO</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">FERRIONI</span><span class="detalle-pais">MEXICO</span></div>
                 <div class="detalle-item"><span class="detalle-nombre">SURTIFAMILIAR</span><span class="detalle-pais">COLOMBIA</span></div>
                 <div class="detalle-item"><span class="detalle-nombre">RENZO COSTA</span><span class="detalle-pais">PERU</span></div>
                 <div class="detalle-item"><span class="detalle-nombre">TIENDAS GARCES</span><span class="detalle-pais">MEXICO</span></div>
-                <div class="detalle-item"><span class="detalle-nombre">ATHELTICS</span><span class="detalle-pais">PERU</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">MUEBLERIAS ELIZONDO</span><span class="detalle-pais">MEXICO</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">IBERO LIBRERIAS</span><span class="detalle-pais">PERU</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">ROSATEL</span><span class="detalle-pais">PERU</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">COMPARTAMOS FINANCIERA</span><span class="detalle-pais">PERU</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">SAORI</span><span class="detalle-pais">PERU</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">BITEL</span><span class="detalle-pais">PERU</span></div>
             </div>
 
             <div class="detalle-card">
-                <div class="detalle-titulo">📍 Próx. Clientes (4)</div>
+                <div class="detalle-titulo">📍 Próximos Clientes - 6</div>
                 <div class="detalle-item"><span class="detalle-nombre">COOLBOX</span><span class="detalle-pais">PERU</span></div>
                 <div class="detalle-item"><span class="detalle-nombre">ERBI</span><span class="detalle-pais">CHILE</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">TIENDAS TUTI - MOAI</span><span class="detalle-pais">ECUADOR</span></div>
                 <div class="detalle-item"><span class="detalle-nombre">DISLICORES</span><span class="detalle-pais">COLOMBIA</span></div>
                 <div class="detalle-item"><span class="detalle-nombre">CARTERS</span><span class="detalle-pais">MEXICO</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">MI FERRISARIATO - MOAI</span><span class="detalle-pais">ECUADOR</span></div>
             </div>
 
             <div class="detalle-card">
-                <div class="detalle-titulo">⚙️ Pilotos OK (3)</div>
+                <div class="detalle-titulo">⚙️ Pilotos OK - 4</div>
                 <div class="detalle-item"><span class="detalle-nombre">SIFRAH</span><span class="detalle-pais">PERU</span></div>
                 <div class="detalle-item"><span class="detalle-nombre">MUEBLES JAMAR</span><span class="detalle-pais">COLOMBIA</span></div>
                 <div class="detalle-item"><span class="detalle-nombre">TIENDAS ARA</span><span class="detalle-pais">COLOMBIA</span></div>
+                <div class="detalle-item"><span class="detalle-nombre">SANTA ELENA</span><span class="detalle-pais">PERU</span></div>
             </div>
         </div>
     </div>
@@ -258,12 +263,12 @@
     <script>
         const colors5 = ['#0066cc', '#00aa00', '#ff6b6b', '#ffd700', '#9b59b6'];
         const colors3 = ['#0066cc', '#ff6b6b', '#ffd700'];
-        new Chart(document.getElementById('chartPais').getContext('2d'), { type: 'pie', data: { labels: ["CHILE", "COLOMBIA", "ECUADOR", "MEXICO", "PERU"], datasets: [{ data: [46.0, 31.07, 9.0, 202.01, 138.0], backgroundColor: colors5 }] }, options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { display: false } } }, plugins: [{ id: 'textCenter', beforeDatasetsDraw(chart) { const { chartArea: { left, top, width, height }, ctx } = chart; ctx.save(); const data = chart.data.datasets[0].data; const sum = data.reduce((a, b) => a + b, 0); chart.getDatasetMeta(0).data.forEach((_, i) => { const pct = ((data[i] / sum) * 100).toFixed(1); const angle = (chart.getDatasetMeta(0).data[i].$context.startAngle + chart.getDatasetMeta(0).data[i].$context.endAngle) / 2; const x = left + width / 2 + Math.cos(angle - Math.PI / 2) * (width / 4); const y = top + height / 2 + Math.sin(angle - Math.PI / 2) * (height / 4); ctx.fillStyle = 'white'; ctx.font = 'bold 10px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(pct + '%', x, y); }); ctx.restore(); } }] });
-        let html = ''; ["CHILE", "COLOMBIA", "ECUADOR", "MEXICO", "PERU"].forEach((l, i) => { const val = [46.0, 31.07, 9.0, 202.01, 138.0][i]; const pct = (val / 426 * 100).toFixed(1); html += `<div class="leyenda-item"><div class="color" style="background: ${colors5[i]}"></div><span>${l} - ${Math.round(val)} (${pct}%)</span></div>`; }); document.getElementById('leyendaPais').innerHTML = html;
-        new Chart(document.getElementById('chartTipo').getContext('2d'), { type: 'pie', data: { labels: ["CLIENTE", "CRUCE", "EXTENSION"], datasets: [{ data: [344.0, 19.0, 63.07], backgroundColor: colors3 }] }, options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { display: false } } }, plugins: [{ id: 'textCenter', beforeDatasetsDraw(chart) { const { chartArea: { left, top, width, height }, ctx } = chart; ctx.save(); const data = chart.data.datasets[0].data; const sum = data.reduce((a, b) => a + b, 0); chart.getDatasetMeta(0).data.forEach((_, i) => { const pct = ((data[i] / sum) * 100).toFixed(1); const angle = (chart.getDatasetMeta(0).data[i].$context.startAngle + chart.getDatasetMeta(0).data[i].$context.endAngle) / 2; const x = left + width / 2 + Math.cos(angle - Math.PI / 2) * (width / 4); const y = top + height / 2 + Math.sin(angle - Math.PI / 2) * (height / 4); ctx.fillStyle = 'white'; ctx.font = 'bold 10px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(pct + '%', x, y); }); ctx.restore(); } }] });
-        html = ''; ["CLIENTE", "CRUCE", "EXTENSION"].forEach((l, i) => { const val = [344.0, 19.0, 63.07][i]; const pct = (val / 426 * 100).toFixed(1); html += `<div class="leyenda-item"><div class="color" style="background: ${colors3[i]}"></div><span>${l} - ${Math.round(val)} (${pct}%)</span></div>`; }); document.getElementById('leyendaTipo').innerHTML = html;
-        new Chart(document.getElementById('chartTamaño').getContext('2d'), { type: 'pie', data: { labels: ["L", "S y M", "XL"], datasets: [{ data: [156.0, 18.0, 252.07], backgroundColor: colors3 }] }, options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { display: false } } }, plugins: [{ id: 'textCenter', beforeDatasetsDraw(chart) { const { chartArea: { left, top, width, height }, ctx } = chart; ctx.save(); const data = chart.data.datasets[0].data; const sum = data.reduce((a, b) => a + b, 0); chart.getDatasetMeta(0).data.forEach((_, i) => { const pct = ((data[i] / sum) * 100).toFixed(1); const angle = (chart.getDatasetMeta(0).data[i].$context.startAngle + chart.getDatasetMeta(0).data[i].$context.endAngle) / 2; const x = left + width / 2 + Math.cos(angle - Math.PI / 2) * (width / 4); const y = top + height / 2 + Math.sin(angle - Math.PI / 2) * (height / 4); ctx.fillStyle = 'white'; ctx.font = 'bold 10px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(pct + '%', x, y); }); ctx.restore(); } }] });
-        html = ''; ["L", "S y M", "XL"].forEach((l, i) => { const val = [156.0, 18.0, 252.07][i]; const pct = (val / 426 * 100).toFixed(1); html += `<div class="leyenda-item"><div class="color" style="background: ${colors3[i]}"></div><span>${l} - ${Math.round(val)} (${pct}%)</span></div>`; }); document.getElementById('leyendaTamaño').innerHTML = html;
+        new Chart(document.getElementById('chartPais').getContext('2d'), { type: 'pie', data: { labels: ["MEXICO", "PERU", "CHILE", "COLOMBIA", "ECUADOR"], datasets: [{ data: [202.01, 138.0, 46.0, 31.07, 9.0], backgroundColor: colors5 }] }, options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { display: false } } }, plugins: [{ id: 'textCenter', beforeDatasetsDraw(chart) { const { chartArea: { left, top, width, height }, ctx } = chart; ctx.save(); const data = chart.data.datasets[0].data; const sum = data.reduce((a, b) => a + b, 0); chart.getDatasetMeta(0).data.forEach((_, i) => { const pct = ((data[i] / sum) * 100).toFixed(1); const angle = (chart.getDatasetMeta(0).data[i].$context.startAngle + chart.getDatasetMeta(0).data[i].$context.endAngle) / 2; const x = left + width / 2 + Math.cos(angle - Math.PI / 2) * (width / 4); const y = top + height / 2 + Math.sin(angle - Math.PI / 2) * (height / 4); ctx.fillStyle = 'white'; ctx.font = 'bold 10px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(pct + '%', x, y); }); ctx.restore(); } }] });
+        let html = ''; ["MEXICO", "PERU", "CHILE", "COLOMBIA", "ECUADOR"].forEach((l, i) => { const val = [202.01, 138.0, 46.0, 31.07, 9.0][i]; const pct = (val / 426.07 * 100).toFixed(1); html += `<div class="leyenda-item"><div class="color" style="background: ${colors5[i]}"></div><span>${l} - ${val.toFixed(0)} (${pct}%)</span></div>`; }); document.getElementById('leyendaPais').innerHTML = html;
+        new Chart(document.getElementById('chartTipo').getContext('2d'), { type: 'pie', data: { labels: ["CLIENTE", "EXTENSION", "CRUCE"], datasets: [{ data: [344.0, 63.07, 19.0], backgroundColor: colors3 }] }, options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { display: false } } }, plugins: [{ id: 'textCenter', beforeDatasetsDraw(chart) { const { chartArea: { left, top, width, height }, ctx } = chart; ctx.save(); const data = chart.data.datasets[0].data; const sum = data.reduce((a, b) => a + b, 0); chart.getDatasetMeta(0).data.forEach((_, i) => { const pct = ((data[i] / sum) * 100).toFixed(1); const angle = (chart.getDatasetMeta(0).data[i].$context.startAngle + chart.getDatasetMeta(0).data[i].$context.endAngle) / 2; const x = left + width / 2 + Math.cos(angle - Math.PI / 2) * (width / 4); const y = top + height / 2 + Math.sin(angle - Math.PI / 2) * (height / 4); ctx.fillStyle = 'white'; ctx.font = 'bold 10px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(pct + '%', x, y); }); ctx.restore(); } }] });
+        html = ''; ["CLIENTE", "EXTENSION", "CRUCE"].forEach((l, i) => { const val = [344.0, 63.07, 19.0][i]; const pct = (val / 426.07 * 100).toFixed(1); html += `<div class="leyenda-item"><div class="color" style="background: ${colors3[i]}"></div><span>${l} - ${val.toFixed(1)} (${pct}%)</span></div>`; }); document.getElementById('leyendaTipo').innerHTML = html;
+        new Chart(document.getElementById('chartTamaño').getContext('2d'), { type: 'pie', data: { labels: ["XL", "L", "S y M"], datasets: [{ data: [252.07, 156.0, 18.0], backgroundColor: colors3 }] }, options: { responsive: true, maintainAspectRatio: true, plugins: { legend: { display: false } } }, plugins: [{ id: 'textCenter', beforeDatasetsDraw(chart) { const { chartArea: { left, top, width, height }, ctx } = chart; ctx.save(); const data = chart.data.datasets[0].data; const sum = data.reduce((a, b) => a + b, 0); chart.getDatasetMeta(0).data.forEach((_, i) => { const pct = ((data[i] / sum) * 100).toFixed(1); const angle = (chart.getDatasetMeta(0).data[i].$context.startAngle + chart.getDatasetMeta(0).data[i].$context.endAngle) / 2; const x = left + width / 2 + Math.cos(angle - Math.PI / 2) * (width / 4); const y = top + height / 2 + Math.sin(angle - Math.PI / 2) * (height / 4); ctx.fillStyle = 'white'; ctx.font = 'bold 10px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.fillText(pct + '%', x, y); }); ctx.restore(); } }] });
+        html = ''; ["XL", "L", "S y M"].forEach((l, i) => { const val = [252.07, 156.0, 18.0][i]; const pct = (val / 426.07 * 100).toFixed(1); html += `<div class="leyenda-item"><div class="color" style="background: ${colors3[i]}"></div><span>${l} - ${val.toFixed(1)} (${pct}%)</span></div>`; }); document.getElementById('leyendaTamaño').innerHTML = html;
     </script>
 </body>
 </html>
