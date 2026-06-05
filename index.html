@@ -51,7 +51,10 @@
         .conversion-metric.success .label { color: #00aa00; }
         .conversion-metric.success .value { color: #00aa00; }
         .mini-card { background: #f5f5f5; padding: 4px 8px; border-radius: 4px; border-left: 2px solid #0066cc; font-size: 16px; margin-top: 3px; display: flex; justify-content: space-between; align-items: center; }
-        .mini-card-value { color: #ff4444; font-weight: 700; }
+        .mini-card-value { color: #0066cc; font-weight: 700; }
+        .mini-card { background: #f5f5f5; padding: 4px 8px; border-radius: 4px; border-left: 2px solid #0066cc; font-size: 16px; margin-top: 3px; display: flex; justify-content: space-between; align-items: center; }
+        .mini-card-ppto { background: #fff4e5; padding: 4px 8px; border-radius: 4px; border-left: 2px solid #e67e22; font-size: 16px; margin-top: 3px; display: flex; justify-content: space-between; align-items: center; }
+        .mini-card-ppto-value { color: #e67e22; font-weight: 700; }
         .detalle-cards { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; margin-top: 20px; margin-bottom: 30px; }
         .detalle-card { background: white; border-radius: 6px; padding: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); border-top: 2px solid #0066cc; }
         .detalle-titulo { font-size: 20px; font-weight: 700; color: #0066cc; margin-bottom: 8px; text-transform: uppercase; }
@@ -62,13 +65,30 @@
         .subtotal-row { background: #d4ebf7; font-weight: 700; padding: 8px !important; text-align: right; color: #0066cc; }
         .total-row { background: #0066cc; font-weight: 700; padding: 8px !important; text-align: right; color: white; }
         .total-uf-red { margin-top: 8px; background: #ff4444; color: white; font-weight: 700; font-size: 16px; padding: 6px 8px; border-radius: 4px; display: flex; justify-content: space-between; }
+        /* Tabla contratos */
+        .contratos-table th { background: #e8f0fb; color: #0066cc; font-size: 13px; padding: 6px 5px; }
+        .contratos-table td { font-size: 13px; padding: 5px; }
+        .contratos-table tr:nth-child(even) td { background: #fafcff; }
+        .badge { display: inline-block; padding: 2px 6px; border-radius: 3px; font-size: 11px; font-weight: 700; }
+        .badge-ok { background: #d4f4d4; color: #00880; }
+        .badge-firma { background: #fff3cd; color: #856404; }
+        .badge-firmado { background: #d4ebf7; color: #0066cc; }
+        .badge-imp { background: #f8d7da; color: #842029; }
+        .badge-nocontrato { background: #cfe2ff; color: #0a58ca; }
     </style>
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+    const now = new Date();
+    const opts = { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit' };
+    document.getElementById('fechaActual').textContent = now.toLocaleDateString('es-ES', opts);
+});
+</script>
 </head>
 <body>
 <div class="container">
-    <h1>📊 Dashboard Presupuesto 2026 - Junio 2026</h1>
+    <h1>📊 DASHBOARD VENTAS 2026 — Acumulado a Mayo</h1>
     <div style="text-align: center; color: #666; font-size: 14px; margin-bottom: 20px;">
-        <strong>Fecha última actualización:</strong> 2 de junio del 2026 - 01:34 AM
+        <strong>Última actualización:</strong> <span id="fechaActual"></span>
     </div>
 
     <!-- SECCIÓN 1: MÉTRICAS + TABLA -->
@@ -91,25 +111,25 @@
                 <div class="card">
                     <div class="card-title">💰 Venta (UF)</div>
                     <div class="metrics-row">
-                        <div class="metric"><span class="label">Real 2026:</span><span class="value">426</span></div>
+                        <div class="metric"><span class="label">Real 2026:</span><span class="value">388</span></div>
                         <div class="metric"><span class="label">Ppto:</span><span class="value">267</span></div>
                         <div class="metric"><span class="label">2025:</span><span class="value">248</span></div>
                     </div>
                     <div class="metrics-row-2">
-                        <div class="metric success"><span class="label">Crec. Ppto:</span><span class="value">59.5%</span></div>
-                        <div class="metric success"><span class="label">Crec. 2025:</span><span class="value">71.8%</span></div>
+                        <div class="metric success"><span class="label">Crec. Ppto:</span><span class="value">45.3%</span></div>
+                        <div class="metric success"><span class="label">Crec. 2025:</span><span class="value">56.5%</span></div>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-title">📈 Venta Acum. (UF)</div>
                     <div class="metrics-row">
-                        <div class="metric"><span class="label">Real 2026:</span><span class="value">773</span></div>
+                        <div class="metric"><span class="label">Real 2026:</span><span class="value">735</span></div>
                         <div class="metric"><span class="label">Ppto:</span><span class="value">649</span></div>
                         <div class="metric"><span class="label">2025:</span><span class="value">895</span></div>
                     </div>
                     <div class="metrics-row-2">
-                        <div class="metric success"><span class="label">Crec. Ppto:</span><span class="value">19.2%</span></div>
-                        <div class="metric success"><span class="label">Crec. 2025:</span><span class="value">-13.6%</span></div>
+                        <div class="metric success"><span class="label">Crec. Ppto:</span><span class="value">13.3%</span></div>
+                        <div class="metric success"><span class="label">Crec. 2025:</span><span class="value">-17.9%</span></div>
                     </div>
                 </div>
             </div>
@@ -131,16 +151,14 @@
                     <tr><td style="color:#0066cc;font-weight:500;">CRUCE</td><td>EL ROSADO</td><td style="text-align:right;font-weight:600;">9</td><td>ECUADOR</td></tr>
                     <tr><td style="color:#0066cc;font-weight:500;">CRUCE</td><td>EUROSUPERMERCADO</td><td style="text-align:right;font-weight:600;">10</td><td>COLOMBIA</td></tr>
                     <tr class="subtotal-row"><td colspan="2" style="text-align:left;color:#0066cc;">Subtotal Cruces</td><td style="text-align:right;">19 UF</td><td></td></tr>
-                    <tr><td style="color:#0066cc;font-weight:500;">EXTENSIÓN</td><td>OXXO AMERICA</td><td style="text-align:right;font-weight:600;">32</td><td>MEXICO</td></tr>
-                    <tr><td style="color:#0066cc;font-weight:500;">EXTENSIÓN</td><td>BARA</td><td style="text-align:right;font-weight:600;">10</td><td>MEXICO</td></tr>
-                    <tr><td style="color:#0066cc;font-weight:500;">EXTENSIÓN</td><td>D1</td><td style="text-align:right;font-weight:600;">21</td><td>COLOMBIA</td></tr>
-                    <tr class="subtotal-row"><td colspan="2" style="text-align:left;color:#0066cc;">Subtotal Extensión</td><td style="text-align:right;">63 UF</td><td></td></tr>
-                    <tr class="total-row"><td colspan="2" style="font-weight:700;text-align:left;">TOTAL GENERAL</td><td style="text-align:right;font-weight:700;">426 UF</td><td></td></tr>
+                    <tr><td style="color:#0066cc;font-weight:500;">EXTENSIÓN</td><td>D1</td><td style="text-align:right;font-weight:600;">25</td><td>COLOMBIA</td></tr>
+                    <tr class="subtotal-row"><td colspan="2" style="text-align:left;color:#0066cc;">Subtotal Extensión</td><td style="text-align:right;">25 UF</td><td></td></tr>
+                    <tr class="total-row"><td colspan="2" style="font-weight:700;text-align:left;">TOTAL GENERAL</td><td style="text-align:right;font-weight:700;">388 UF</td><td></td></tr>
                 </table>
             </div>
         </div>
     </div>
-    <!-- SEPARADOR ÚNICO FULL WIDTH -->
+    <!-- SEPARADOR -->
     <hr style="border:none;border-top:1px solid #0066cc;opacity:0.4;margin:12px 0;">
     <!-- FILA DESARROLLOS -->
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:30px;align-items:stretch;">
@@ -169,8 +187,112 @@
             </div>
         </div>
     </div>
+
+    <!-- SECCIÓN: ESTADO DE CONTRATOS Y O/C -->
+    <hr style="border:none;border-top:3px solid #0066cc;opacity:0.6;margin:12px 0;">
+    <div class="section-title">📄 Estado de Contratos y Órdenes de Compra</div>
+    <div class="tabla" style="margin-bottom:30px;">
+        <table class="contratos-table">
+            <tr>
+                <th>CLIENTE</th>
+                <th style="text-align:right;">UF</th>
+                <th>OK PROYECTO</th>
+                <th>STATUS CONTRATO</th>
+                <th>FECHA CONTRATO</th>
+                <th>FECHA KICK OFF</th>
+                <th>GENERAR O/C</th>
+                <th>PROX. PASO O/C</th>
+            </tr>
+            <tr>
+                <td><strong>SALESLAND MOAI</strong></td>
+                <td style="text-align:right;font-weight:700;">15</td>
+                <td>MARZO</td>
+                <td><span class="badge badge-firmado">FIRMADO</span></td>
+                <td>ABRIL</td>
+                <td>JUNIO</td>
+                <td>—</td>
+                <td>OK JUNIO</td>
+            </tr>
+            <tr>
+                <td><strong>SAN CAMILO</strong></td>
+                <td style="text-align:right;font-weight:700;">28</td>
+                <td>MARZO</td>
+                <td><span class="badge badge-firmado">FIRMADO</span></td>
+                <td>ABRIL</td>
+                <td>ABRIL</td>
+                <td>MAYO</td>
+                <td>—</td>
+            </tr>
+            <tr>
+                <td><strong>SURTIDORA DEPARTAMENTAL</strong></td>
+                <td style="text-align:right;font-weight:700;">30</td>
+                <td>MAYO</td>
+                <td><span class="badge badge-firmado">FIRMADO</span></td>
+                <td>MAYO</td>
+                <td>MAYO</td>
+                <td>ULT. MES</td>
+                <td>OK JUNIO</td>
+            </tr>
+            <tr>
+                <td><strong>KITCHEN CENTER</strong></td>
+                <td style="text-align:right;font-weight:700;">18</td>
+                <td>MAYO</td>
+                <td><span class="badge badge-firmado">FIRMADO</span></td>
+                <td>MAYO</td>
+                <td>MAYO</td>
+                <td><span class="badge badge-imp">IMP = 0 - ULT. MES</span></td>
+                <td>OK JUNIO</td>
+            </tr>
+            <tr>
+                <td><strong>REPSOL</strong></td>
+                <td style="text-align:right;font-weight:700;">50</td>
+                <td>ABRIL</td>
+                <td><span class="badge badge-firma">FIRMA ONEAPP</span></td>
+                <td>JUNIO</td>
+                <td>JUNIO</td>
+                <td>—</td>
+                <td>OK JUNIO</td>
+            </tr>
+            <tr>
+                <td><strong>MINISO</strong></td>
+                <td style="text-align:right;font-weight:700;">23</td>
+                <td>MARZO</td>
+                <td><span class="badge badge-nocontrato">NO CONTRATO</span></td>
+                <td>—</td>
+                <td>ABRIL</td>
+                <td>MAYO</td>
+                <td>—</td>
+            </tr>
+            <tr>
+                <td><strong>RIPLEY PERU</strong></td>
+                <td style="text-align:right;font-weight:700;">50</td>
+                <td>ABRIL</td>
+                <td><span class="badge badge-firma">FIRMA ONEAPP</span></td>
+                <td>JUNIO</td>
+                <td>MAYO</td>
+                <td>—</td>
+                <td>JUNIO - R</td>
+            </tr>
+            <tr>
+                <td><strong>PRIME COMMS</strong></td>
+                <td style="text-align:right;font-weight:700;">130</td>
+                <td>ABRIL</td>
+                <td><span class="badge badge-firmado">FIRMADO</span></td>
+                <td>ABRIL</td>
+                <td>ABRIL</td>
+                <td><span class="badge badge-imp">IMP = 0</span></td>
+                <td>OK JUNIO</td>
+            </tr>
+            <tr class="total-row">
+                <td style="font-weight:700;text-align:left;">TOTAL (8 clientes)</td>
+                <td style="text-align:right;font-weight:700;">344 UF</td>
+                <td colspan="6"></td>
+            </tr>
+        </table>
+    </div>
+
     <!-- SECCIÓN 2: GRÁFICOS -->
-    <div class="section-title">📊 Análisis de Venta (sobre 426 UF)</div>
+    <div class="section-title">📊 Análisis de Venta (sobre 388 UF)</div>
     <div class="graficos">
         <div class="grafico">
             <div class="grafico-titulo">Por País</div>
@@ -197,34 +319,36 @@
     <div class="embudo-container">
         <div class="embudo">
             <div class="embudo-content">
-                <div class="embudo-stage"><div class="embudo-bar" style="background:#0066cc;width:100%;"><span>🎯 Reuniones</span><div class="stage-info"><span class="stage-num">137</span><span class="stage-pct">100.0%</span></div></div></div>
-                <div class="embudo-stage"><div class="embudo-bar" style="background:#0052a3;width:85%;"><span>✅ Calificados</span><div class="stage-info"><span class="stage-num">41</span><span class="stage-pct">29.9%</span></div></div></div>
-                <div class="embudo-stage"><div class="embudo-bar" style="background:#003d7a;width:65%;"><span>🚀 Próx. Piloto</span><div class="stage-info"><span class="stage-num">16</span><span class="stage-pct">11.7%</span></div></div></div>
-                <div class="embudo-stage"><div class="embudo-bar" style="background:#002d5c;width:55%;"><span>📍 Próx. Cliente</span><div class="stage-info"><span class="stage-num">6</span><span class="stage-pct">4.4%</span></div></div></div>
-                <div class="embudo-stage"><div class="embudo-bar" style="background:#001d3d;width:45%;"><span>⚙️ Piloto OK</span><div class="stage-info"><span class="stage-num">4</span><span class="stage-pct">2.9%</span></div></div></div>
-                <div class="embudo-stage"><div class="embudo-bar" style="background:#001428;width:35%;"><span>🏆 Clientes</span><div class="stage-info"><span class="stage-num">8</span><span class="stage-pct">5.8%</span></div></div></div>
+                <div class="embudo-stage"><div class="embudo-bar" style="background:#0066cc;width:100%;"><span>🎯 Reuniones</span><div class="stage-info"><span class="stage-num">125</span><span class="stage-pct">100.0%</span></div></div></div>
+                <div class="embudo-stage"><div class="embudo-bar" style="background:#0052a3;width:85%;"><span>✅ Calificados</span><div class="stage-info"><span class="stage-num">41</span><span class="stage-pct">32.8%</span></div></div></div>
+                <div class="embudo-stage"><div class="embudo-bar" style="background:#003d7a;width:65%;"><span>🚀 Próx. Piloto</span><div class="stage-info"><span class="stage-num">16</span><span class="stage-pct">12.8%</span></div></div></div>
+                <div class="embudo-stage"><div class="embudo-bar" style="background:#002d5c;width:55%;"><span>📍 Próx. Cliente</span><div class="stage-info"><span class="stage-num">6</span><span class="stage-pct">4.8%</span></div></div></div>
+                <div class="embudo-stage"><div class="embudo-bar" style="background:#001d3d;width:45%;"><span>⚙️ Piloto OK</span><div class="stage-info"><span class="stage-num">4</span><span class="stage-pct">3.2%</span></div></div></div>
+                <div class="embudo-stage"><div class="embudo-bar" style="background:#001428;width:35%;"><span>🏆 Clientes</span><div class="stage-info"><span class="stage-num">8</span><span class="stage-pct">6.4%</span></div></div></div>
             </div>
         </div>
         <div class="conversiones-stack">
             <div class="conversion-card">
                 <div class="card-title">Conversión Clientes</div>
                 <div class="conversion-metric"><span class="label">Clientes:</span><span class="value">8</span></div>
-                <div class="conversion-metric"><span class="label">Reuniones:</span><span class="value">137</span></div>
-                <div class="conversion-metric success"><span class="label">Conversión:</span><span class="value">5.8%</span></div>
-                <div class="mini-card"><span>2025:</span><span class="mini-card-value">4.0%</span></div>
+                <div class="conversion-metric"><span class="label">Reuniones:</span><span class="value">125</span></div>
+                <div class="conversion-metric success"><span class="label">Conversión:</span><span class="value">6.4%</span></div>
+                <div class="mini-card-ppto"><span>Conversión Ppto:</span><span class="mini-card-ppto-value">4.6%</span></div>
+                <div class="mini-card"><span>Conversión 2025:</span><span class="mini-card-value">2.5%</span></div>
             </div>
             <div class="conversion-card">
                 <div class="card-title">Conv. Clientes + Pilotos</div>
                 <div class="conversion-metric"><span class="label">Total:</span><span class="value">12</span></div>
-                <div class="conversion-metric"><span class="label">Reuniones:</span><span class="value">137</span></div>
-                <div class="conversion-metric success"><span class="label">Conversión:</span><span class="value">8.8%</span></div>
-                <div class="mini-card"><span>2025:</span><span class="mini-card-value">6.2%</span></div>
+                <div class="conversion-metric"><span class="label">Reuniones:</span><span class="value">125</span></div>
+                <div class="conversion-metric success"><span class="label">Conversión:</span><span class="value">9.6%</span></div>
+                <div class="mini-card-ppto"><span>Conversión Ppto:</span><span class="mini-card-ppto-value">6.6%</span></div>
+                <div class="mini-card"><span>Conversión 2025:</span><span class="mini-card-value">5.7%</span></div>
             </div>
             <div class="conversion-card">
                 <div class="card-title">Conversión Decisional</div>
                 <div class="conversion-metric"><span class="label">Total:</span><span class="value">34</span></div>
-                <div class="conversion-metric"><span class="label">Reuniones:</span><span class="value">137</span></div>
-                <div class="conversion-metric success"><span class="label">Conversión:</span><span class="value">24.8%</span></div>
+                <div class="conversion-metric"><span class="label">Reuniones:</span><span class="value">125</span></div>
+                <div class="conversion-metric success"><span class="label">Conversión:</span><span class="value">27.2%</span></div>
             </div>
         </div>
     </div>
@@ -285,6 +409,343 @@
             <div class="total-uf-red"><span>TOTAL UF PIPELINE</span><span>191 UF</span></div>
         </div>
     </div>
+
+    <!-- SECCIÓN 5: ON BOARDING -->
+    <hr style="border:none;border-top:3px solid #0066cc;opacity:0.6;margin:20px 0 12px 0;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:30px;align-items:start;">
+
+        <!-- DETALLE ON BOARDING -->
+        <div class="tabla" style="height:100%;display:flex;flex-direction:column;">
+            <div class="section-title" style="font-size:22px;margin:0 0 12px 0;padding-bottom:6px;">🔧 Detalle On Boarding</div>
+            <table style="flex:1;">
+                <tr><th style="background:#e8f0fb;color:#0066cc;padding:7px 5px;font-size:12px;">GRUPO</th><th style="background:#e8f0fb;color:#0066cc;padding:7px 5px;font-size:12px;">CLIENTE</th><th style="background:#e8f0fb;color:#0066cc;text-align:right;padding:7px 5px;font-size:12px;">UF</th><th style="background:#e8f0fb;color:#0066cc;padding:7px 5px;font-size:12px;">ESTADO</th></tr>
+                <tr><td colspan="4" style="background:#f0f5ff;font-weight:700;color:#0066cc;padding:5px 5px;font-size:11px;">👥 CLIENTES 2026</td></tr>
+                <tr><td style="font-size:11px;color:#555;padding:5px 4px;">CLIENTE</td><td style="font-size:12px;padding:5px 4px;">SALESLAND MOAI</td><td style="text-align:right;font-weight:600;padding:5px 4px;">15</td><td><span style="background:#fff4e5;color:#e67e22;padding:1px 5px;border-radius:3px;font-size:10px;font-weight:700;">POR COMENZAR</span></td></tr>
+                <tr><td style="font-size:11px;color:#555;padding:5px 4px;">CLIENTE</td><td style="font-size:12px;padding:5px 4px;">SAN CAMILO</td><td style="text-align:right;font-weight:600;padding:5px 4px;">28</td><td><span style="background:#f0f0f0;color:#666;padding:1px 5px;border-radius:3px;font-size:10px;font-weight:700;">SALIO</span></td></tr>
+                <tr><td style="font-size:11px;color:#555;padding:5px 4px;">CLIENTE</td><td style="font-size:12px;padding:5px 4px;">SURTIDORA DEPARTAMENTAL</td><td style="text-align:right;font-weight:600;padding:5px 4px;">30</td><td><span style="background:#e8f0fb;color:#0066cc;padding:1px 5px;border-radius:3px;font-size:10px;font-weight:700;">IMPLEMENTANDO</span></td></tr>
+                <tr><td style="font-size:11px;color:#555;padding:5px 4px;">CLIENTE</td><td style="font-size:12px;padding:5px 4px;">KITCHEN CENTER</td><td style="text-align:right;font-weight:600;padding:5px 4px;">18</td><td><span style="background:#e8f0fb;color:#0066cc;padding:1px 5px;border-radius:3px;font-size:10px;font-weight:700;">IMPLEMENTANDO</span></td></tr>
+                <tr><td style="font-size:11px;color:#555;padding:5px 4px;">CLIENTE</td><td style="font-size:12px;padding:5px 4px;">REPSOL</td><td style="text-align:right;font-weight:600;padding:5px 4px;">50</td><td><span style="background:#fff4e5;color:#e67e22;padding:1px 5px;border-radius:3px;font-size:10px;font-weight:700;">POR COMENZAR</span></td></tr>
+                <tr><td style="font-size:11px;color:#555;padding:5px 4px;">CLIENTE</td><td style="font-size:12px;padding:5px 4px;">MINISO</td><td style="text-align:right;font-weight:600;padding:5px 4px;">23</td><td><span style="background:#e8f0fb;color:#0066cc;padding:1px 5px;border-radius:3px;font-size:10px;font-weight:700;">IMPLEMENTANDO</span></td></tr>
+                <tr><td style="font-size:11px;color:#555;padding:5px 4px;">CLIENTE</td><td style="font-size:12px;padding:5px 4px;">RIPLEY PERU</td><td style="text-align:right;font-weight:600;padding:5px 4px;">50</td><td><span style="background:#e8f0fb;color:#0066cc;padding:1px 5px;border-radius:3px;font-size:10px;font-weight:700;">IMPLEMENTANDO</span></td></tr>
+                <tr><td style="font-size:11px;color:#555;padding:5px 4px;">CLIENTE</td><td style="font-size:12px;padding:5px 4px;">PRIME COMMS</td><td style="text-align:right;font-weight:600;padding:5px 4px;">130</td><td><span style="background:#e8f0fb;color:#0066cc;padding:1px 5px;border-radius:3px;font-size:10px;font-weight:700;">IMPLEMENTANDO</span></td></tr>
+                <tr><td colspan="4" style="background:#f0f5ff;font-weight:700;color:#0066cc;padding:5px 5px;font-size:11px;">⚙️ PILOTOS OK 2026</td></tr>
+                <tr><td style="font-size:11px;color:#555;padding:5px 4px;">PILOTO OK</td><td style="font-size:12px;padding:5px 4px;">MUEBLES JAMAR</td><td style="text-align:right;font-weight:600;padding:5px 4px;">45</td><td><span style="background:#fff4e5;color:#e67e22;padding:1px 5px;border-radius:3px;font-size:10px;font-weight:700;">POR COMENZAR</span></td></tr>
+                <tr><td style="font-size:11px;color:#555;padding:5px 4px;">PILOTO OK</td><td style="font-size:12px;padding:5px 4px;">SIFRAH</td><td style="text-align:right;font-weight:600;padding:5px 4px;">25</td><td><span style="background:#e8f0fb;color:#0066cc;padding:1px 5px;border-radius:3px;font-size:10px;font-weight:700;">IMPLEMENTANDO</span></td></tr>
+                <tr><td style="font-size:11px;color:#555;padding:5px 4px;">PILOTO OK</td><td style="font-size:12px;padding:5px 4px;">TIENDAS ARA</td><td style="text-align:right;font-weight:600;padding:5px 4px;">100</td><td><span style="background:#fff4e5;color:#e67e22;padding:1px 5px;border-radius:3px;font-size:10px;font-weight:700;">POR COMENZAR</span></td></tr>
+                <tr><td style="font-size:11px;color:#555;padding:5px 4px;">PILOTO OK</td><td style="font-size:12px;padding:5px 4px;">SANTA ELENA</td><td style="text-align:right;font-weight:600;padding:5px 4px;">21</td><td><span style="background:#fff4e5;color:#e67e22;padding:1px 5px;border-radius:3px;font-size:10px;font-weight:700;">POR COMENZAR</span></td></tr>
+                <tr><td colspan="4" style="background:#f0f5ff;font-weight:700;color:#0066cc;padding:5px 5px;font-size:11px;">🏛️ CLIENTES ANTIGUOS</td></tr>
+                <tr><td style="font-size:11px;color:#555;padding:5px 4px;">ANTIGUO</td><td style="font-size:12px;padding:5px 4px;">BATA COLOMBIA</td><td style="text-align:right;font-weight:600;padding:5px 4px;">35</td><td><span style="background:#e8f0fb;color:#0066cc;padding:1px 5px;border-radius:3px;font-size:10px;font-weight:700;">IMPLEMENTANDO</span></td></tr>
+                <tr><td style="font-size:11px;color:#555;padding:5px 4px;">ANTIGUO</td><td style="font-size:12px;padding:5px 4px;">BATA PERU</td><td style="text-align:right;font-weight:600;padding:5px 4px;">35</td><td><span style="background:#e8f0fb;color:#0066cc;padding:1px 5px;border-radius:3px;font-size:10px;font-weight:700;">IMPLEMENTANDO</span></td></tr>
+            </table>
+        </div>
+
+        <!-- RESUMEN ON BOARDING -->
+        <div class="tabla" style="height:100%;display:flex;flex-direction:column;">
+            <div class="section-title" style="font-size:22px;margin:0 0 12px 0;padding-bottom:6px;">📊 Resumen On Boarding</div>
+            <table style="flex:1;">
+                <tr>
+                    <th style="background:#e8f0fb;color:#0066cc;padding:10px 8px;font-size:18px;"></th>
+                    <th style="background:#e8f0fb;color:#0066cc;padding:10px 8px;font-size:18px;"></th>
+                    <th style="background:#e8f0fb;color:#0066cc;text-align:center;padding:10px 8px;font-size:18px;">IMPLEMENTANDO</th>
+                    <th style="background:#e8f0fb;color:#0066cc;text-align:center;padding:10px 8px;font-size:18px;">POR PARTIR</th>
+                    <th style="background:#e8f0fb;color:#0066cc;text-align:center;padding:10px 8px;font-size:18px;">TOTALES</th>
+                    <th style="background:#e8f0fb;color:#0066cc;text-align:center;padding:10px 8px;font-size:18px;">TERMINADO</th>
+                </tr>
+                <tr><td style="font-weight:600;font-size:20px;padding:10px 6px;">CLIENTES</td><td style="color:#666;font-size:18px;padding:10px 6px;">2025</td><td style="text-align:center;font-weight:700;font-size:24px;padding:10px;">2</td><td style="text-align:center;font-weight:700;font-size:24px;padding:10px;">0</td><td style="text-align:center;color:#ccc;font-size:18px;padding:10px;">—</td><td style="text-align:center;font-weight:700;font-size:24px;padding:10px;">0</td></tr>
+                <tr><td style="font-weight:600;font-size:20px;padding:10px 6px;">CLIENTES</td><td style="color:#666;font-size:18px;padding:10px 6px;">2026</td><td style="text-align:center;font-weight:700;font-size:24px;padding:10px;">5</td><td style="text-align:center;font-weight:700;font-size:24px;padding:10px;">2</td><td style="text-align:center;color:#ccc;font-size:18px;padding:10px;">—</td><td style="text-align:center;font-weight:700;font-size:24px;padding:10px;">1</td></tr>
+                <tr><td colspan="6" style="padding:6px;border:none;"></td></tr>
+                <tr><td style="font-weight:600;font-size:20px;padding:10px 6px;">PILOTOS</td><td style="color:#666;font-size:18px;padding:10px 6px;">2026</td><td style="text-align:center;font-weight:700;font-size:24px;padding:10px;">1</td><td style="text-align:center;font-weight:700;font-size:24px;padding:10px;">3</td><td style="text-align:center;color:#ccc;font-size:18px;padding:10px;">—</td><td style="text-align:center;font-weight:700;font-size:24px;padding:10px;">0</td></tr>
+                <tr style="background:#0066cc;color:white;"><td style="font-weight:700;padding:12px 8px;font-size:20px;">TOTALES</td><td></td><td style="text-align:center;font-weight:700;padding:12px;font-size:26px;">8</td><td style="text-align:center;font-weight:700;padding:12px;font-size:26px;">5</td><td style="text-align:center;font-weight:700;padding:12px;font-size:28px;background:#ff4444;">13</td><td style="text-align:center;font-weight:700;padding:12px;font-size:26px;">1</td></tr>
+                <tr><td colspan="6" style="padding:8px;border:none;"></td></tr>
+                <tr><td style="font-weight:600;font-size:20px;padding:10px 6px;">PRONOSTICO</td><td style="color:#666;font-size:18px;padding:10px 6px;">JUNIO</td><td style="text-align:center;font-weight:700;font-size:24px;padding:10px;">0</td><td style="text-align:center;font-weight:700;font-size:24px;padding:10px;">4</td><td style="text-align:center;color:#ccc;font-size:18px;padding:10px;">—</td><td style="text-align:center;font-weight:700;font-size:24px;padding:10px;">0</td></tr>
+                <tr style="background:#0066cc;color:white;"><td style="font-weight:700;padding:12px 8px;font-size:20px;">TOTALES</td><td></td><td style="text-align:center;font-weight:700;padding:12px;font-size:26px;">8</td><td style="text-align:center;font-weight:700;padding:12px;font-size:26px;">9</td><td style="text-align:center;font-weight:700;padding:12px;font-size:28px;background:#ff4444;">17</td><td style="text-align:center;font-weight:700;padding:12px;font-size:26px;">1</td></tr>
+            </table>
+        </div>
+
+    </div>
+
+    <!-- SECCIÓN 6: ANÁLISIS EVOLUTIVO INVERTIDO DEL EMBUDO -->
+    <hr style="border:none;border-top:3px solid #0066cc;opacity:0.6;margin:20px 0 12px 0;">
+    <div class="section-title">📈 Análisis Evolutivo Invertido del Embudo</div>
+    <div style="font-size:20px;font-weight:700;color:#0066cc;margin:20px 0 12px 0;padding-bottom:6px;border-bottom:1px solid #e0e8f5;">Análisis Clientes</div>
+
+    <!-- Leyenda compartida -->
+    <div style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px;font-size:13px;color:#666;">
+        <span style="display:flex;align-items:center;gap:6px;"><span style="width:22px;height:3px;background:#0066cc;border-radius:2px;display:inline-block;"></span>Real 2026</span>
+        <span style="display:flex;align-items:center;gap:6px;"><span style="width:22px;border-top:2px dashed #e67e22;display:inline-block;"></span>Ppto 2026</span>
+        <span style="display:flex;align-items:center;gap:6px;"><span style="width:22px;border-top:2px dashed #aaa;display:inline-block;"></span>Real 2025</span>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:28px;margin-bottom:30px;">
+
+        <!-- Clientes Acumulados -->
+        <div class="tabla" style="padding:16px;">
+            <div style="font-size:13px;font-weight:700;color:#0066cc;margin-bottom:12px;">Clientes Acumulados</div>
+            <div style="display:flex;gap:16px;align-items:stretch;">
+                <div style="width:65%;position:relative;height:253px;">
+                    <canvas id="evoClientes" role="img" aria-label="Clientes acumulados por mes.">Clientes acumulados: Real 2026=8, Ppto=16, Real 2025=12</canvas>
+                </div>
+                <div style="width:32%;display:flex;flex-direction:column;gap:10px;">
+                    <div style="background:#f0f5ff;border-radius:8px;border-top:3px solid #0066cc;padding:10px;">
+                        <div style="font-size:11px;font-weight:700;color:#0066cc;margin-bottom:8px;text-transform:uppercase;">Acumulado a Mayo</div>
+                        <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #e0e8f5;"><span style="font-size:12px;color:#555;">Real 2026</span><span style="font-size:15px;font-weight:700;color:#0066cc;">8</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #e0e8f5;"><span style="font-size:12px;color:#555;">Ppto 2026</span><span style="font-size:15px;font-weight:700;color:#e67e22;">7</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:3px 0;"><span style="font-size:12px;color:#555;">Real 2025</span><span style="font-size:15px;font-weight:700;color:#aaa;">4</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:2px 0;border-top:1px dashed #c0d0e8;margin-top:4px;"><span style="font-size:10px;color:#555;">% Crec. PPTO</span><span style="font-size:13px;font-weight:700;color:#00aa00;">+14.3%</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:2px 0;"><span style="font-size:10px;color:#555;">% Crec. 2025</span><span style="font-size:13px;font-weight:700;color:#00aa00;">+100.0%</span></div>
+                    </div>
+                    <div style="background:#f9f9f9;border-radius:8px;border-top:3px solid #aaa;padding:10px;">
+                        <div style="font-size:11px;font-weight:700;color:#666;margin-bottom:8px;text-transform:uppercase;">Acumulado Año</div>
+                        <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #eee;"><span style="font-size:12px;color:#555;">Real 2025</span><span style="font-size:15px;font-weight:700;color:#aaa;">12</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:3px 0;"><span style="font-size:12px;color:#555;">Ppto 2026</span><span style="font-size:15px;font-weight:700;color:#e67e22;">16</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conversión Acumulada -->
+        <div class="tabla" style="padding:16px;">
+            <div style="font-size:13px;font-weight:700;color:#0066cc;margin-bottom:12px;">Conversión Acumulada</div>
+            <div style="display:flex;gap:16px;align-items:stretch;">
+                <div style="width:65%;position:relative;height:253px;">
+                    <canvas id="evoConversion" role="img" aria-label="Conversión acumulada por mes.">Conversión acumulada: Real 2026=6.4%, Ppto=5.0%, Real 2025=3.9%</canvas>
+                </div>
+                <div style="width:32%;display:flex;flex-direction:column;gap:10px;">
+                    <div style="background:#f0f5ff;border-radius:8px;border-top:3px solid #0066cc;padding:10px;">
+                        <div style="font-size:11px;font-weight:700;color:#0066cc;margin-bottom:8px;text-transform:uppercase;">Acumulado a Mayo</div>
+                        <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #e0e8f5;"><span style="font-size:12px;color:#555;">Real 2026</span><span style="font-size:15px;font-weight:700;color:#0066cc;">6.4%</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #e0e8f5;"><span style="font-size:12px;color:#555;">Ppto 2026</span><span style="font-size:15px;font-weight:700;color:#e67e22;">4.6%</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:3px 0;"><span style="font-size:12px;color:#555;">Real 2025</span><span style="font-size:15px;font-weight:700;color:#aaa;">2.5%</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:2px 0;border-top:1px dashed #c0d0e8;margin-top:4px;"><span style="font-size:10px;color:#555;">% Crec. PPTO</span><span style="font-size:13px;font-weight:700;color:#00aa00;">+39.1%</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:2px 0;"><span style="font-size:10px;color:#555;">% Crec. 2025</span><span style="font-size:13px;font-weight:700;color:#00aa00;">+156.0%</span></div>
+                    </div>
+                    <div style="background:#f9f9f9;border-radius:8px;border-top:3px solid #aaa;padding:10px;">
+                        <div style="font-size:11px;font-weight:700;color:#666;margin-bottom:8px;text-transform:uppercase;">Acumulado Año</div>
+                        <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #eee;"><span style="font-size:12px;color:#555;">Real 2025</span><span style="font-size:15px;font-weight:700;color:#aaa;">3.9%</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:3px 0;"><span style="font-size:12px;color:#555;">Ppto 2026</span><span style="font-size:15px;font-weight:700;color:#e67e22;">5.0%</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ANÁLISIS PILOTOS -->
+    <div style="font-size:20px;font-weight:700;color:#0066cc;margin:20px 0 12px 0;padding-bottom:6px;border-bottom:1px solid #e0e8f5;">Análisis Pilotos</div>
+
+    <div style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px;font-size:13px;color:#666;">
+        <span style="display:flex;align-items:center;gap:6px;"><span style="width:22px;height:3px;background:#0066cc;border-radius:2px;display:inline-block;"></span>Real 2026</span>
+        <span style="display:flex;align-items:center;gap:6px;"><span style="width:22px;border-top:2px dashed #e67e22;display:inline-block;"></span>Ppto 2026</span>
+        <span style="display:flex;align-items:center;gap:6px;"><span style="width:22px;border-top:2px dashed #aaa;display:inline-block;"></span>Real 2025</span>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:28px;margin-bottom:30px;">
+
+        <!-- Pilotos Acumulados -->
+        <div class="tabla" style="padding:16px;">
+            <div style="font-size:13px;font-weight:700;color:#0066cc;margin-bottom:12px;">Pilotos Acumulados</div>
+            <div style="display:flex;gap:16px;align-items:stretch;">
+                <div style="width:65%;position:relative;height:253px;">
+                    <canvas id="evoPilotos" role="img" aria-label="Pilotos acumulados por mes.">Pilotos acumulados: Real 2026=7, Ppto=10, Real 2025=8</canvas>
+                </div>
+                <div style="width:32%;display:flex;flex-direction:column;gap:10px;">
+                    <div style="background:#f0f5ff;border-radius:8px;border-top:3px solid #0066cc;padding:10px;">
+                        <div style="font-size:11px;font-weight:700;color:#0066cc;margin-bottom:8px;text-transform:uppercase;">Acumulado a Mayo</div>
+                        <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #e0e8f5;"><span style="font-size:12px;color:#555;">Real 2026</span><span style="font-size:15px;font-weight:700;color:#0066cc;">7</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #e0e8f5;"><span style="font-size:12px;color:#555;">Ppto 2026</span><span style="font-size:15px;font-weight:700;color:#e67e22;">3</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:3px 0;"><span style="font-size:12px;color:#555;">Real 2025</span><span style="font-size:15px;font-weight:700;color:#aaa;">5</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:2px 0;border-top:1px dashed #c0d0e8;margin-top:4px;"><span style="font-size:10px;color:#555;">% Crec. PPTO</span><span style="font-size:13px;font-weight:700;color:#00aa00;">+133.3%</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:2px 0;"><span style="font-size:10px;color:#555;">% Crec. 2025</span><span style="font-size:13px;font-weight:700;color:#00aa00;">+40.0%</span></div>
+                    </div>
+                    <div style="background:#f9f9f9;border-radius:8px;border-top:3px solid #aaa;padding:10px;">
+                        <div style="font-size:11px;font-weight:700;color:#666;margin-bottom:8px;text-transform:uppercase;">Acumulado Año</div>
+                        <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #eee;"><span style="font-size:12px;color:#555;">Real 2025</span><span style="font-size:15px;font-weight:700;color:#aaa;">8</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:3px 0;"><span style="font-size:12px;color:#555;">Ppto 2026</span><span style="font-size:15px;font-weight:700;color:#e67e22;">10</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conversión Clientes + Pilotos Acumulada -->
+        <div class="tabla" style="padding:16px;">
+            <div style="font-size:13px;font-weight:700;color:#0066cc;margin-bottom:12px;">Conversión Clientes + Pilotos Acumulada</div>
+            <div style="display:flex;gap:16px;align-items:stretch;">
+                <div style="width:65%;position:relative;height:253px;">
+                    <canvas id="evoConvPilotos" role="img" aria-label="Conversión acumulada clientes más pilotos.">Conversión Cli+Pil: Real 2026=9.6%, Ppto=8.2%, Real 2025=6.5%</canvas>
+                </div>
+                <div style="width:32%;display:flex;flex-direction:column;gap:10px;">
+                    <div style="background:#f0f5ff;border-radius:8px;border-top:3px solid #0066cc;padding:10px;">
+                        <div style="font-size:11px;font-weight:700;color:#0066cc;margin-bottom:8px;text-transform:uppercase;">Acumulado a Mayo</div>
+                        <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #e0e8f5;"><span style="font-size:12px;color:#555;">Real 2026</span><span style="font-size:15px;font-weight:700;color:#0066cc;">9.6%</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #e0e8f5;"><span style="font-size:12px;color:#555;">Ppto 2026</span><span style="font-size:15px;font-weight:700;color:#e67e22;">6.6%</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:3px 0;"><span style="font-size:12px;color:#555;">Real 2025</span><span style="font-size:15px;font-weight:700;color:#aaa;">5.7%</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:2px 0;border-top:1px dashed #c0d0e8;margin-top:4px;"><span style="font-size:10px;color:#555;">% Crec. PPTO</span><span style="font-size:13px;font-weight:700;color:#00aa00;">+45.5%</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:2px 0;"><span style="font-size:10px;color:#555;">% Crec. 2025</span><span style="font-size:13px;font-weight:700;color:#00aa00;">+68.4%</span></div>
+                    </div>
+                    <div style="background:#f9f9f9;border-radius:8px;border-top:3px solid #aaa;padding:10px;">
+                        <div style="font-size:11px;font-weight:700;color:#666;margin-bottom:8px;text-transform:uppercase;">Acumulado Año</div>
+                        <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #eee;"><span style="font-size:12px;color:#555;">Real 2025</span><span style="font-size:15px;font-weight:700;color:#aaa;">6.5%</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:3px 0;"><span style="font-size:12px;color:#555;">Ppto 2026</span><span style="font-size:15px;font-weight:700;color:#e67e22;">8.2%</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- ANÁLISIS CALIFICADAS - BANT -->
+    <div style="font-size:20px;font-weight:700;color:#0066cc;margin:20px 0 12px 0;padding-bottom:6px;border-bottom:1px solid #e0e8f5;">Análisis Calificadas — BANT</div>
+
+    <div style="display:grid;grid-template-columns:40% 58%;gap:16px;margin-bottom:30px;align-items:stretch;">
+
+        <!-- Card métrica BANT -->
+        <div class="card" style="display:flex;flex-direction:column;justify-content:center;gap:12px;">
+            <div class="card-title">📊 Calificación BANT</div>
+            <div class="metrics-row" style="grid-template-columns:1fr 1fr;">
+                <div class="metric"><span class="label">Calificadas:</span><span class="value">41</span></div>
+                <div class="metric"><span class="label">Reuniones:</span><span class="value">125</span></div>
+            </div>
+            <div style="background:#f0f5ff;border-radius:6px;border-left:4px solid #0066cc;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;">
+                <span style="font-size:14px;font-weight:700;color:#0066cc;text-transform:uppercase;">% BANT</span>
+                <span style="font-size:42px;font-weight:700;color:#0066cc;">32.8%</span>
+            </div>
+        </div>
+
+        <!-- Card explicación BANT -->
+        <div style="background:white;border-radius:8px;border:2px solid #0066cc;padding:20px;box-shadow:0 2px 4px rgba(0,0,0,0.08);">
+            <div style="font-size:13px;font-weight:700;color:#0066cc;margin-bottom:12px;">BANT (%) — Calidad del Pipeline Comercial</div>
+            <p style="font-size:13px;color:#444;line-height:1.7;margin-bottom:12px;">El benchmark objetivo es <strong>25%</strong>, equivalente a 1 oportunidad BANT por cada 4 reuniones realizadas. Este estándar representa una operación comercial sólida en ventas consultivas B2B, donde no todas las reuniones cuentan con las condiciones necesarias para transformarse en una oportunidad real.</p>
+            <p style="font-size:13px;color:#444;font-weight:600;margin-bottom:8px;">Una oportunidad BANT debe cumplir simultáneamente con:</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;">
+                <div style="background:#f0f5ff;border-radius:6px;padding:8px 10px;border-left:3px solid #0066cc;">
+                    <span style="font-size:12px;font-weight:700;color:#0066cc;">Budget</span>
+                    <p style="font-size:11px;color:#555;margin:2px 0 0 0;line-height:1.5;">Existe capacidad de inversión identificada.</p>
+                </div>
+                <div style="background:#f0f5ff;border-radius:6px;padding:8px 10px;border-left:3px solid #0066cc;">
+                    <span style="font-size:12px;font-weight:700;color:#0066cc;">Authority</span>
+                    <p style="font-size:11px;color:#555;margin:2px 0 0 0;line-height:1.5;">Participa el decisor o patrocinador del proyecto.</p>
+                </div>
+                <div style="background:#f0f5ff;border-radius:6px;padding:8px 10px;border-left:3px solid #0066cc;">
+                    <span style="font-size:12px;font-weight:700;color:#0066cc;">Need</span>
+                    <p style="font-size:11px;color:#555;margin:2px 0 0 0;line-height:1.5;">Existe un problema o necesidad relevante por resolver.</p>
+                </div>
+                <div style="background:#f0f5ff;border-radius:6px;padding:8px 10px;border-left:3px solid #0066cc;">
+                    <span style="font-size:12px;font-weight:700;color:#0066cc;">Timing</span>
+                    <p style="font-size:11px;color:#555;margin:2px 0 0 0;line-height:1.5;">Hay una ventana definida para evaluar o implementar.</p>
+                </div>
+            </div>
+            <p style="font-size:12px;color:#666;line-height:1.6;border-top:1px solid #e0e8f5;padding-top:10px;margin:0;">Este indicador mide la calidad de las reuniones generadas y la efectividad del proceso de calificación. A mayor % BANT, mayor probabilidad de convertir reuniones en pilotos y clientes.</p>
+        </div>
+
+    </div>
+
+    <!-- ANÁLISIS REUNIONES -->
+    <div style="font-size:20px;font-weight:700;color:#0066cc;margin:20px 0 12px 0;padding-bottom:6px;border-bottom:1px solid #e0e8f5;">Análisis Reuniones</div>
+
+    <div style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:16px;font-size:13px;color:#666;">
+        <span style="display:flex;align-items:center;gap:6px;"><span style="width:22px;height:3px;background:#0066cc;border-radius:2px;display:inline-block;"></span>Real 2026</span>
+        <span style="display:flex;align-items:center;gap:6px;"><span style="width:22px;border-top:2px dashed #e67e22;display:inline-block;"></span>Ppto 2026</span>
+        <span style="display:flex;align-items:center;gap:6px;"><span style="width:22px;border-top:2px dashed #aaa;display:inline-block;"></span>Real 2025</span>
+    </div>
+
+    <!-- Reuniones Totales -->
+    <div class="tabla" style="padding:16px;margin-bottom:28px;">
+        <div style="font-size:13px;font-weight:700;color:#0066cc;margin-bottom:12px;">Reuniones Acumuladas Totales</div>
+        <div style="display:flex;gap:16px;align-items:stretch;">
+            <div style="width:65%;position:relative;height:253px;">
+                <canvas id="evoReuTot" role="img" aria-label="Reuniones acumuladas totales.">Reuniones totales: Real 2026=125, Ppto=319, Real 2025=310</canvas>
+            </div>
+            <div style="width:32%;display:flex;flex-direction:column;gap:10px;">
+                <div style="background:#f0f5ff;border-radius:8px;border-top:3px solid #0066cc;padding:10px;">
+                    <div style="font-size:11px;font-weight:700;color:#0066cc;margin-bottom:8px;text-transform:uppercase;">Acumulado a Mayo</div>
+                    <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #e0e8f5;"><span style="font-size:12px;color:#555;">Real 2026</span><span style="font-size:15px;font-weight:700;color:#0066cc;">125</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #e0e8f5;"><span style="font-size:12px;color:#555;">Ppto 2026</span><span style="font-size:15px;font-weight:700;color:#e67e22;">153</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:3px 0;"><span style="font-size:12px;color:#555;">Real 2025</span><span style="font-size:15px;font-weight:700;color:#aaa;">159</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:2px 0;border-top:1px dashed #c0d0e8;margin-top:4px;"><span style="font-size:10px;color:#555;">% Crec. PPTO</span><span style="font-size:13px;font-weight:700;color:#cc0000;">-18.3%</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:2px 0;"><span style="font-size:10px;color:#555;">% Crec. 2025</span><span style="font-size:13px;font-weight:700;color:#cc0000;">-21.4%</span></div>
+                </div>
+                <div style="background:#f9f9f9;border-radius:8px;border-top:3px solid #aaa;padding:10px;">
+                    <div style="font-size:11px;font-weight:700;color:#666;margin-bottom:8px;text-transform:uppercase;">Acumulado Año</div>
+                    <div style="display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #eee;"><span style="font-size:12px;color:#555;">Real 2025</span><span style="font-size:15px;font-weight:700;color:#aaa;">310</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:3px 0;"><span style="font-size:12px;color:#555;">Ppto 2026</span><span style="font-size:15px;font-weight:700;color:#e67e22;">319</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reuniones por Tamaño: XL, L, S y M -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:30px;">
+
+        <!-- XL -->
+        <div class="tabla" style="padding:14px;">
+            <div style="font-size:14px;font-weight:700;color:#0066cc;margin-bottom:10px;">Reuniones Acum. XL</div>
+            <div style="position:relative;height:200px;">
+                <canvas id="evoReuXL" role="img" aria-label="Reuniones acumuladas XL.">XL: Real 2026=36, Ppto=80, Real 2025=39</canvas>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px;">
+                <div style="background:#f0f5ff;border-radius:6px;border-top:2px solid #0066cc;padding:8px;">
+                    <div style="font-size:10px;font-weight:700;color:#0066cc;margin-bottom:6px;text-transform:uppercase;">Acumulado a Mayo</div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid #e0e8f5;"><span style="font-size:11px;color:#555;">Real 2026</span><span style="font-size:13px;font-weight:700;color:#0066cc;">36</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid #e0e8f5;"><span style="font-size:11px;color:#555;">Ppto 2026</span><span style="font-size:13px;font-weight:700;color:#e67e22;">38</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;"><span style="font-size:11px;color:#555;">Real 2025</span><span style="font-size:13px;font-weight:700;color:#aaa;">22</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;border-top:1px dashed #c0d0e8;margin-top:4px;"><span style="font-size:10px;color:#555;">% Crec. PPTO</span><span style="font-size:11px;font-weight:700;color:#cc0000;">-5.3%</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:2px 0;"><span style="font-size:10px;color:#555;">% Crec. 2025</span><span style="font-size:11px;font-weight:700;color:#00aa00;">+63.6%</span></div>
+                </div>
+                <div style="background:#f9f9f9;border-radius:6px;border-top:2px solid #aaa;padding:8px;">
+                    <div style="font-size:10px;font-weight:700;color:#666;margin-bottom:6px;text-transform:uppercase;">Acumulado Año</div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid #eee;"><span style="font-size:11px;color:#555;">Real 2025</span><span style="font-size:13px;font-weight:700;color:#aaa;">39</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;"><span style="font-size:11px;color:#555;">Ppto 2026</span><span style="font-size:13px;font-weight:700;color:#e67e22;">80</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- L -->
+        <div class="tabla" style="padding:14px;">
+            <div style="font-size:14px;font-weight:700;color:#0066cc;margin-bottom:10px;">Reuniones Acum. L</div>
+            <div style="position:relative;height:200px;">
+                <canvas id="evoReuL" role="img" aria-label="Reuniones acumuladas L.">L: Real 2026=60, Ppto=191, Real 2025=104</canvas>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px;">
+                <div style="background:#f0f5ff;border-radius:6px;border-top:2px solid #0066cc;padding:8px;">
+                    <div style="font-size:10px;font-weight:700;color:#0066cc;margin-bottom:6px;text-transform:uppercase;">Acumulado a Mayo</div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid #e0e8f5;"><span style="font-size:11px;color:#555;">Real 2026</span><span style="font-size:13px;font-weight:700;color:#0066cc;">60</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid #e0e8f5;"><span style="font-size:11px;color:#555;">Ppto 2026</span><span style="font-size:13px;font-weight:700;color:#e67e22;">92</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;"><span style="font-size:11px;color:#555;">Real 2025</span><span style="font-size:13px;font-weight:700;color:#aaa;">52</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;border-top:1px dashed #c0d0e8;margin-top:4px;"><span style="font-size:10px;color:#555;">% Crec. PPTO</span><span style="font-size:11px;font-weight:700;color:#cc0000;">-34.8%</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:2px 0;"><span style="font-size:10px;color:#555;">% Crec. 2025</span><span style="font-size:11px;font-weight:700;color:#00aa00;">+15.4%</span></div>
+                </div>
+                <div style="background:#f9f9f9;border-radius:6px;border-top:2px solid #aaa;padding:8px;">
+                    <div style="font-size:10px;font-weight:700;color:#666;margin-bottom:6px;text-transform:uppercase;">Acumulado Año</div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid #eee;"><span style="font-size:11px;color:#555;">Real 2025</span><span style="font-size:13px;font-weight:700;color:#aaa;">104</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;"><span style="font-size:11px;color:#555;">Ppto 2026</span><span style="font-size:13px;font-weight:700;color:#e67e22;">191</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- S y M -->
+        <div class="tabla" style="padding:14px;">
+            <div style="font-size:14px;font-weight:700;color:#0066cc;margin-bottom:10px;">Reuniones Acum. S y M</div>
+            <div style="position:relative;height:200px;">
+                <canvas id="evoReuSM" role="img" aria-label="Reuniones acumuladas S y M.">S y M: Real 2026=29, Ppto=48, Real 2025=167</canvas>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px;">
+                <div style="background:#f0f5ff;border-radius:6px;border-top:2px solid #0066cc;padding:8px;">
+                    <div style="font-size:10px;font-weight:700;color:#0066cc;margin-bottom:6px;text-transform:uppercase;">Acumulado a Mayo</div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid #e0e8f5;"><span style="font-size:11px;color:#555;">Real 2026</span><span style="font-size:13px;font-weight:700;color:#0066cc;">29</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid #e0e8f5;"><span style="font-size:11px;color:#555;">Ppto 2026</span><span style="font-size:13px;font-weight:700;color:#e67e22;">23</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;"><span style="font-size:11px;color:#555;">Real 2025</span><span style="font-size:13px;font-weight:700;color:#aaa;">85</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;border-top:1px dashed #c0d0e8;margin-top:4px;"><span style="font-size:10px;color:#555;">% Crec. PPTO</span><span style="font-size:11px;font-weight:700;color:#00aa00;">+26.1%</span></div>
+                        <div style="display:flex;justify-content:space-between;padding:2px 0;"><span style="font-size:10px;color:#555;">% Crec. 2025</span><span style="font-size:11px;font-weight:700;color:#cc0000;">-65.9%</span></div>
+                </div>
+                <div style="background:#f9f9f9;border-radius:6px;border-top:2px solid #aaa;padding:8px;">
+                    <div style="font-size:10px;font-weight:700;color:#666;margin-bottom:6px;text-transform:uppercase;">Acumulado Año</div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;border-bottom:1px solid #eee;"><span style="font-size:11px;color:#555;">Real 2025</span><span style="font-size:13px;font-weight:700;color:#aaa;">167</span></div>
+                    <div style="display:flex;justify-content:space-between;padding:2px 0;"><span style="font-size:11px;color:#555;">Ppto 2026</span><span style="font-size:13px;font-weight:700;color:#e67e22;">48</span></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </div>
 
 <script>
@@ -310,24 +771,87 @@
 
     // PAÍS
     const paisLabels=["MEXICO","PERU","CHILE","COLOMBIA","ECUADOR"];
-    const paisData=[202,138,46,31,9];
+    const paisData=[160,138,46,35,9];
     const paisTotal=paisData.reduce((a,b)=>a+b,0);
     new Chart(document.getElementById('chartPais').getContext('2d'),{type:'pie',data:{labels:paisLabels,datasets:[{data:paisData,backgroundColor:c5}]},options:{responsive:true,maintainAspectRatio:true,plugins:{legend:{display:false}}},plugins:[pctPlugin]});
     document.getElementById('leyendaPais').innerHTML=paisLabels.map((l,i)=>`<div class="leyenda-item"><div class="color" style="background:${c5[i]}"></div><span>${l} - ${paisData[i]} (${(paisData[i]/paisTotal*100).toFixed(1)}%)</span></div>`).join('');
 
     // TIPO
     const tipoLabels=["CLIENTE","EXTENSION","CRUCE"];
-    const tipoData=[344,63,19];
+    const tipoData=[344,25,19];
     const tipoTotal=tipoData.reduce((a,b)=>a+b,0);
     new Chart(document.getElementById('chartTipo').getContext('2d'),{type:'pie',data:{labels:tipoLabels,datasets:[{data:tipoData,backgroundColor:c3}]},options:{responsive:true,maintainAspectRatio:true,plugins:{legend:{display:false}}},plugins:[pctPlugin]});
     document.getElementById('leyendaTipo').innerHTML=tipoLabels.map((l,i)=>`<div class="leyenda-item"><div class="color" style="background:${c3[i]}"></div><span>${l} - ${tipoData[i]} (${(tipoData[i]/tipoTotal*100).toFixed(1)}%)</span></div>`).join('');
 
     // TAMAÑO
     const tamLabels=["XL","L","S y M"];
-    const tamData=[252,156,18];
+    const tamData=[287,83,18];
     const tamTotal=tamData.reduce((a,b)=>a+b,0);
     new Chart(document.getElementById('chartTamano').getContext('2d'),{type:'pie',data:{labels:tamLabels,datasets:[{data:tamData,backgroundColor:c3}]},options:{responsive:true,maintainAspectRatio:true,plugins:{legend:{display:false}}},plugins:[pctPlugin]});
     document.getElementById('leyendaTamano').innerHTML=tamLabels.map((l,i)=>`<div class="leyenda-item"><div class="color" style="background:${c3[i]}"></div><span>${l} - ${tamData[i]} (${(tamData[i]/tamTotal*100).toFixed(1)}%)</span></div>`).join('');
+
+    // ANÁLISIS EVOLUTIVO - líneas
+    const mesesEvo = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+    const cfgEvo = (r25, p26, r26, ymax, fmt) => ({
+        type: 'line',
+        data: { labels: mesesEvo, datasets: [
+            { label:'Real 2026', data:r26, borderColor:'#0066cc', backgroundColor:'rgba(0,102,204,0.07)', borderWidth:3, pointRadius:4, pointBackgroundColor:'#0066cc', tension:0.3, fill:true, spanGaps:false },
+            { label:'Ppto 2026', data:p26, borderColor:'#e67e22', borderWidth:2, borderDash:[6,4], pointRadius:2, pointBackgroundColor:'#e67e22', tension:0.3, fill:false },
+            { label:'Real 2025', data:r25, borderColor:'#aaa', borderWidth:2, borderDash:[4,4], pointRadius:2, pointBackgroundColor:'#aaa', tension:0.3, fill:false }
+        ]},
+        options: { responsive:true, maintainAspectRatio:false,
+            plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label: ctx => ctx.dataset.label+': '+(ctx.parsed.y!=null ? fmt(ctx.parsed.y) : '—') }}},
+            scales:{
+                x:{ ticks:{autoSkip:false, font:{size:11}, maxRotation:0}, grid:{color:'rgba(0,0,0,0.04)'}},
+                y:{ beginAtZero:true, max:ymax, ticks:{font:{size:11}, callback: v => fmt(v)}, grid:{color:'rgba(0,0,0,0.06)'}}
+            }
+        }
+    });
+    const fmtN = v => v;
+    const fmtP = v => v.toFixed(1)+'%';
+
+    new Chart(document.getElementById('evoClientes').getContext('2d'), cfgEvo(
+        [2,2,2,4,4,4,4,4,12,12,12,12],
+        [1,2,3,6,7,8,9,10,11,13,15,16],
+        [0,0,1,6,8,null,null,null,null,null,null,null], 18, fmtN));
+
+
+    new Chart(document.getElementById('evoConversion').getContext('2d'), cfgEvo(
+        [7.4,4.1,2.1,3.1,2.5,2.2,1.9,1.8,4.7,4.1,3.9,3.9],
+        [5.6,4.3,4.1,5.2,4.6,4.3,4.1,4.0,4.1,4.5,4.9,5.0],
+        [0,0,1.1,5.3,6.4,null,null,null,null,null,null,null], 10, fmtP));
+
+    // ANÁLISIS PILOTOS
+    new Chart(document.getElementById('evoPilotos').getContext('2d'), cfgEvo(
+        [1,2,4,4,5,5,6,8,8,8,8,8],
+        [1,2,2,3,3,4,5,6,7,8,9,10],
+        [2,2,3,3,7,null,null,null,null,null,null,null], 12, fmtN));
+
+    // ANÁLISIS REUNIONES
+    new Chart(document.getElementById('evoReuTot').getContext('2d'), cfgEvo(
+        [27,49,94,128,159,179,210,226,258,291,305,310],
+        [18,46,74,116,153,186,220,249,269,291,309,319],
+        [23,46,93,113,125,null,null,null,null,null,null,null], 350, fmtN));
+
+    new Chart(document.getElementById('evoReuXL').getContext('2d'), cfgEvo(
+        [4,5,8,19,22,25,30,30,33,37,38,39],
+        [4,12,19,29,38,47,55,62,67,73,77,80],
+        [8,13,30,33,36,null,null,null,null,null,null,null], 90, fmtN));
+
+    new Chart(document.getElementById('evoReuL').getContext('2d'), cfgEvo(
+        [7,11,31,41,52,60,68,77,95,99,103,104],
+        [11,28,44,70,92,112,132,149,161,175,185,191],
+        [11,22,46,53,60,null,null,null,null,null,null,null], 210, fmtN));
+
+    new Chart(document.getElementById('evoReuSM').getContext('2d'), cfgEvo(
+        [16,33,55,68,85,94,112,119,130,155,164,167],
+        [3,7,11,17,23,28,33,37,40,44,46,48],
+        [4,11,17,27,29,null,null,null,null,null,null,null], 180, fmtN));
+
+    new Chart(document.getElementById('evoConvPilotos').getContext('2d'), cfgEvo(
+        [11.1,8.2,6.4,6.3,5.7,5.0,4.8,5.3,7.8,6.9,6.6,6.5],
+        [11.2,8.6,6.8,7.7,6.6,6.5,6.4,6.4,6.7,7.2,7.8,8.2],
+        [8.7,4.3,3.2,5.3,9.6,null,null,null,null,null,null,null], 14, fmtP));
 </script>
 </body>
 </html>
