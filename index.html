@@ -11,7 +11,7 @@
         body { font-family: system-ui, -apple-system, sans-serif; background: #f5f5f5; padding: 20px; }
         .container { max-width: 100%; margin: 0 auto; }
         h1 { text-align: center; color: #0066cc; margin-bottom: 30px; font-size: 52px; font-weight: 700; }
-        .section-title { font-size: 28px; font-weight: 700; color: #0066cc; margin: 25px 0 15px 0; padding-bottom: 8px; border-bottom: 2px solid #0066cc; }
+        .section-title { font-size: 28px; font-weight: 700; color: #0066cc; margin: 0 0 8px 0; padding-bottom: 0; }
         .layout-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px; align-items: stretch; }
         .cards-stack { display: grid; grid-template-columns: 1fr; gap: 15px; }
         .card { background: white; border-radius: 8px; padding: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.08); border-top: 3px solid #0066cc; }
@@ -55,7 +55,7 @@
         .mini-card { background: #f5f5f5; padding: 4px 8px; border-radius: 4px; border-left: 2px solid #0066cc; font-size: 16px; margin-top: 3px; display: flex; justify-content: space-between; align-items: center; }
         .mini-card-ppto { background: #fff4e5; padding: 4px 8px; border-radius: 4px; border-left: 2px solid #e67e22; font-size: 16px; margin-top: 3px; display: flex; justify-content: space-between; align-items: center; }
         .mini-card-ppto-value { color: #e67e22; font-weight: 700; }
-        .detalle-cards { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; margin-top: 20px; margin-bottom: 30px; }
+        .detalle-cards { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px; margin-top: 4px; margin-bottom: 30px; }
         .detalle-card { background: white; border-radius: 6px; padding: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); border-top: 2px solid #0066cc; }
         .detalle-titulo { font-size: 20px; font-weight: 700; color: #0066cc; margin-bottom: 8px; text-transform: uppercase; }
         .detalle-item { font-size: 16px; padding: 3px 0; border-bottom: 1px solid #f0f0f0; display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: center; }
@@ -86,10 +86,9 @@ window.addEventListener('DOMContentLoaded', function() {
 </head>
 <body>
 <div class="container">
-    <h1>📊 DASHBOARD VENTAS 2026 — Acumulado a Mayo</h1>
-    <div style="text-align: center; color: #666; font-size: 14px; margin-bottom: 20px;">
-        <strong>Última actualización:</strong> <span id="fechaActual"></span>
-    </div>
+    <h1 style="font-size:36px;">📊 DASHBOARD VENTAS 2026</h1>
+    <div style="text-align:center;color:#0066cc;font-size:20px;font-weight:600;margin:-16px 0 6px;">Acumulado a Mayo</div>
+    <div style="text-align:center;color:#888;font-size:13px;margin-bottom:24px;"><strong>Última actualización:</strong> <span id="fechaActual"></span></div>
 
     <!-- SECCIÓN 1: MÉTRICAS + TABLA -->
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:0;align-items:stretch;">
@@ -158,8 +157,9 @@ window.addEventListener('DOMContentLoaded', function() {
             </div>
         </div>
     </div>
-    <!-- SEPARADOR -->
-    <hr style="border:none;border-top:1px solid #0066cc;opacity:0.4;margin:12px 0;">
+    <!-- SEPARADOR DESARROLLOS -->
+    <div style="margin:40px 0 28px 0;"></div>
+    <div style="margin-top:96px;"></div>
     <!-- FILA DESARROLLOS -->
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:30px;align-items:stretch;">
         <div style="display:flex;flex-direction:column;">
@@ -188,8 +188,29 @@ window.addEventListener('DOMContentLoaded', function() {
         </div>
     </div>
 
+    <div style="margin-top:72px;"></div>
+    <!-- SECCIÓN 2: GRÁFICOS -->
+    <div class="section-title">📊 Análisis de Venta (sobre 388 UF)</div>
+    <div class="graficos">
+        <div class="grafico">
+            <div class="grafico-titulo">Por País</div>
+            <div class="chart-container"><canvas id="chartPais"></canvas></div>
+            <div class="leyenda" id="leyendaPais"></div>
+        </div>
+        <div class="grafico">
+            <div class="grafico-titulo">Por Tipo</div>
+            <div class="chart-container"><canvas id="chartTipo"></canvas></div>
+            <div class="leyenda" id="leyendaTipo"></div>
+        </div>
+        <div class="grafico">
+            <div class="grafico-titulo">Por Tamaño</div>
+            <div class="chart-container"><canvas id="chartTamano"></canvas></div>
+            <div class="leyenda" id="leyendaTamano"></div>
+        </div>
+    </div>
+
+    <div style="margin-top:72px;"></div>
     <!-- SECCIÓN: ESTADO DE CONTRATOS Y O/C -->
-    <hr style="border:none;border-top:3px solid #0066cc;opacity:0.6;margin:12px 0;">
     <div class="section-title">📄 Estado de Contratos y Órdenes de Compra</div>
     <div class="tabla" style="margin-bottom:30px;">
         <table class="contratos-table">
@@ -291,30 +312,13 @@ window.addEventListener('DOMContentLoaded', function() {
         </table>
     </div>
 
-    <!-- SECCIÓN 2: GRÁFICOS -->
-    <div class="section-title">📊 Análisis de Venta (sobre 388 UF)</div>
-    <div class="graficos">
-        <div class="grafico">
-            <div class="grafico-titulo">Por País</div>
-            <div class="chart-container"><canvas id="chartPais"></canvas></div>
-            <div class="leyenda" id="leyendaPais"></div>
-        </div>
-        <div class="grafico">
-            <div class="grafico-titulo">Por Tipo</div>
-            <div class="chart-container"><canvas id="chartTipo"></canvas></div>
-            <div class="leyenda" id="leyendaTipo"></div>
-        </div>
-        <div class="grafico">
-            <div class="grafico-titulo">Por Tamaño</div>
-            <div class="chart-container"><canvas id="chartTamano"></canvas></div>
-            <div class="leyenda" id="leyendaTamano"></div>
-        </div>
-    </div>
 
+
+    <div style="margin-top:72px;"></div>
     <!-- SECCIÓN 3: EMBUDO + CONVERSIONES -->
-    <div style="display:grid;grid-template-columns:66% 34%;gap:15px;margin-bottom:20px;">
-        <div class="section-title" style="border-bottom:none;margin:0;padding:0 0 8px 0;">🎯 Embudo de Venta</div>
-        <div class="section-title" style="border-bottom:none;margin:0;padding:0 0 8px 0;">📊 Conversiones</div>
+    <div style="display:grid;grid-template-columns:66% 34%;gap:15px;margin-bottom:4px;">
+        <div class="section-title" style="border-bottom:none;margin:0;padding:0;">🎯 Embudo de Venta</div>
+        <div class="section-title" style="border-bottom:none;margin:0;padding:0;">📊 Conversiones</div>
     </div>
     <div class="embudo-container">
         <div class="embudo">
@@ -353,8 +357,9 @@ window.addEventListener('DOMContentLoaded', function() {
         </div>
     </div>
 
+    <div style="margin-top:72px;"></div>
     <!-- SECCIÓN 4: LEADS CERCANOS -->
-    <div class="section-title">📋 Próximos Leads Cercanos (33 leads)</div>
+    <div class="section-title" style="margin-bottom:4px;">📋 Próximos Leads Cercanos (33 leads)</div>
     <div class="detalle-cards">
         <!-- CARD 1: Calificados Hoy L=5 -->
         <div class="detalle-card">
@@ -410,8 +415,9 @@ window.addEventListener('DOMContentLoaded', function() {
         </div>
     </div>
 
+    <div style="margin-top:72px;"></div>
     <!-- SECCIÓN 5: ON BOARDING -->
-    <hr style="border:none;border-top:3px solid #0066cc;opacity:0.6;margin:20px 0 12px 0;">
+    <div class="section-title">🔄 On Boarding</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:30px;align-items:start;">
 
         <!-- DETALLE ON BOARDING -->
@@ -465,7 +471,7 @@ window.addEventListener('DOMContentLoaded', function() {
     </div>
 
     <!-- SECCIÓN 6: ANÁLISIS EVOLUTIVO INVERTIDO DEL EMBUDO -->
-    <hr style="border:none;border-top:3px solid #0066cc;opacity:0.6;margin:20px 0 12px 0;">
+    <div style="margin-top:80px;"></div>
     <div class="section-title">📈 Análisis Evolutivo Invertido del Embudo</div>
     <div style="font-size:20px;font-weight:700;color:#0066cc;margin:20px 0 12px 0;padding-bottom:6px;border-bottom:1px solid #e0e8f5;">Análisis Clientes</div>
 
@@ -746,6 +752,83 @@ window.addEventListener('DOMContentLoaded', function() {
         </div>
 
     </div>
+
+    <!-- SECCIÓN CONCLUSIONES -->
+    <div style="margin-top:80px;"></div>
+    <div class="section-title">💬 Conclusiones</div>
+
+    <!-- FRASE CENTRAL -->
+    <div style="text-align:center;margin:24px auto 32px;max-width:85%;padding:20px 28px;background:#f0f5ff;border-radius:12px;border-left:5px solid #0066cc;">
+        <p style="font-family:Georgia,'Times New Roman',serif;font-size:20px;font-style:italic;color:#0066cc;line-height:1.7;font-weight:400;">
+            "Sembramos bien, cosechamos fuerte y la calidad del pipeline nos da ventaja real.<br>
+            Ahora el partido se gana preocupándonos de operar e implementar<br>
+            — y siendo el aporte que la caja está esperando."
+        </p>
+    </div>
+
+    <!-- DOS COLUMNAS -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:30px;align-items:start;">
+
+        <!-- COLUMNA IZQUIERDA: LOGROS -->
+        <div style="background:white;border-radius:10px;border:1px solid #ddd;overflow:hidden;">
+            <div style="background:#1a9e5c;padding:10px 18px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:white;">✅ Logros</div>
+            <div style="padding:14px 18px;border-bottom:1px solid #f0f0f0;display:flex;gap:12px;background:#f7fdf9;">
+                <div style="font-size:20px;min-width:24px;">🏆</div>
+                <div><div style="font-size:13px;font-weight:700;color:#0f6e3e;margin-bottom:3px;">Adelante en venta y clientes</div><div style="font-size:12px;color:#555;line-height:1.6;">388 UF vs 267 de Ppto (+45%) y 8 clientes vs 7. Ambos indicadores sobre la meta a mayo. Buen ritmo, pero el año es largo.</div></div>
+            </div>
+            <div style="padding:14px 18px;border-bottom:1px solid #f0f0f0;display:flex;gap:12px;background:#f7fdf9;">
+                <div style="font-size:20px;min-width:24px;">⚙️</div>
+                <div><div style="font-size:13px;font-weight:700;color:#0f6e3e;margin-bottom:3px;">Pilotos cerca de la meta anual</div><div style="font-size:12px;color:#555;line-height:1.6;">7 activos, 70% del Ppto, con 17 en decisión. Si la mitad convierte, la meta se supera. El pipeline de pilotos es el activo más valioso del H2.</div></div>
+            </div>
+            <div style="padding:14px 18px;border-bottom:1px solid #f0f0f0;display:flex;gap:12px;background:#f7fdf9;">
+                <div style="font-size:20px;min-width:24px;">📈</div>
+                <div><div style="font-size:13px;font-weight:700;color:#0f6e3e;margin-bottom:3px;">Conversión sobre presupuesto</div><div style="font-size:12px;color:#555;line-height:1.6;">125 reuniones vs 153 de Ppto, y conversión al 6.4% — por encima del 4.6% presupuestado.</div></div>
+            </div>
+            <div style="padding:14px 18px;border-bottom:1px solid #f0f0f0;display:flex;gap:12px;background:#f7fdf9;">
+                <div style="font-size:20px;min-width:24px;">🚀</div>
+                <div><div style="font-size:13px;font-weight:700;color:#0f6e3e;margin-bottom:3px;">Desarrollos cambian el panorama financiero</div><div style="font-size:12px;color:#555;line-height:1.6;">D1 es la vaca lechera del año — sola suma 5x el Ppto. Un componente que no estaba en el plan y que cambia la caja del año.</div></div>
+            </div>
+            <div style="padding:14px 18px;border-bottom:1px solid #f0f0f0;display:flex;gap:12px;background:#f7fdf9;">
+                <div style="font-size:20px;min-width:24px;">💡</div>
+                <div><div style="font-size:13px;font-weight:700;color:#0f6e3e;margin-bottom:3px;">Calidad de pipeline por encima del mercado</div><div style="font-size:12px;color:#555;line-height:1.6;">BANT del 32.8% vs benchmark del 25%. 1 de cada 3 reuniones genera una oportunidad real calificada. No solo generamos volumen — generamos calidad.</div></div>
+            </div>
+            <div style="padding:14px 18px;display:flex;gap:12px;background:#f7fdf9;">
+                <div style="font-size:20px;min-width:24px;">🎯</div>
+                <div><div style="font-size:13px;font-weight:700;color:#0f6e3e;margin-bottom:3px;">Profundos en proceso</div><div style="font-size:12px;color:#555;line-height:1.6;">17 próximos pilotos y 7 próximos clientes en proceso de decisión. La máquina comercial está enfocada, no parada.</div></div>
+            </div>
+        </div>
+
+        <!-- COLUMNA DERECHA: ALERTAS + RIESGOS -->
+        <div style="background:white;border-radius:10px;border:1px solid #ddd;overflow:hidden;">
+            <div style="background:#e67e22;padding:10px 18px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:white;">⚠️ Alertas</div>
+            <div style="padding:14px 18px;border-bottom:1px solid #f0f0f0;display:flex;gap:12px;background:#fffaf5;">
+                <div style="font-size:20px;min-width:24px;">⚠️</div>
+                <div><div style="font-size:13px;font-weight:700;color:#a85e10;margin-bottom:3px;">Alerta Onboarding</div><div style="font-size:12px;color:#555;line-height:1.6;">5 de 8 clientes implementando, 2 por comenzar, y 17 pilotos esperando decisión. La operación puede no tener velocidad suficiente — el riesgo real es que un piloto se pierda por falta de atención.</div></div>
+            </div>
+            <div style="padding:14px 18px;border-bottom:1px solid #f0f0f0;display:flex;gap:12px;background:#fffaf5;">
+                <div style="font-size:20px;min-width:24px;">📝</div>
+                <div><div style="font-size:13px;font-weight:700;color:#a85e10;margin-bottom:3px;">Contratos bien, O/C son la urgencia</div><div style="font-size:12px;color:#555;line-height:1.6;">4 sin O/C representan 245 UF, el 63% de la venta. Cerrar con implementación cero daña la facturación. Hay que acelerar — la caja lo necesita.</div></div>
+            </div>
+            <div style="padding:14px 18px;border-bottom:1px solid #f0f0f0;display:flex;gap:12px;background:#fffaf5;">
+                <div style="font-size:20px;min-width:24px;">⏳</div>
+                <div><div style="font-size:13px;font-weight:700;color:#a85e10;margin-bottom:3px;">Cortos en reuniones nuevas</div><div style="font-size:12px;color:#555;line-height:1.6;">La capacidad se trasladó a cierres y calificación. Hay que reactivar la parte alta del embudo sin descuidar lo que ya está en proceso.</div></div>
+            </div>
+            <div style="background:#c0392b;padding:10px 18px;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:white;">🔴 Riesgos</div>
+            <div style="padding:14px 18px;border-bottom:1px solid #f0f0f0;display:flex;gap:12px;background:#fdf7f7;">
+                <div style="font-size:20px;min-width:24px;">🌱</div>
+                <div><div style="font-size:13px;font-weight:700;color:#922b21;margin-bottom:3px;">Pipeline futuro en riesgo</div><div style="font-size:12px;color:#555;line-height:1.6;">Solo 7 leads en calificación activa. El H2 depende de sembrar nuevas reuniones con leads grandes y calificar las ya efectuadas.</div></div>
+            </div>
+            <div style="padding:14px 18px;border-bottom:1px solid #f0f0f0;display:flex;gap:12px;background:#fdf7f7;">
+                <div style="font-size:20px;min-width:24px;">🎯</div>
+                <div><div style="font-size:13px;font-weight:700;color:#922b21;margin-bottom:3px;">Mix de tamaño desequilibrado</div><div style="font-size:12px;color:#555;line-height:1.6;">XL casi en Ppto, S y M sobre Ppto. Pero L acumula 60 vs 92 (-35%). El segmento de mayor volumen posible está subejecutado — por foco y capacidad.</div></div>
+            </div>
+            <div style="padding:14px 18px;display:flex;gap:12px;background:#fdf7f7;">
+                <div style="font-size:20px;min-width:24px;">🌎</div>
+                <div><div style="font-size:13px;font-weight:700;color:#922b21;margin-bottom:3px;">Geografía con cuatro velocidades</div><div style="font-size:12px;color:#555;line-height:1.6;">México lidera con exigencia alta. Perú sorprende como mercado de mayor crecimiento. Colombia siembra para H2. Chile preocupa — reuniones que no convierten en un mercado hiper trabajado.</div></div>
+            </div>
+        </div>
+
+    </div>
 </div>
 
 <script>
@@ -811,47 +894,23 @@ window.addEventListener('DOMContentLoaded', function() {
     const fmtP = v => v.toFixed(1)+'%';
 
     new Chart(document.getElementById('evoClientes').getContext('2d'), cfgEvo(
-        [2,2,2,4,4,4,4,4,12,12,12,12],
-        [1,2,3,6,7,8,9,10,11,13,15,16],
-        [0,0,1,6,8,null,null,null,null,null,null,null], 18, fmtN));
-
-
+        [2,2,2,4,4,4,4,4,12,12,12,12],[1,2,3,6,7,8,9,10,11,13,15,16],[0,0,1,6,8,null,null,null,null,null,null,null],18,fmtN));
     new Chart(document.getElementById('evoConversion').getContext('2d'), cfgEvo(
-        [7.4,4.1,2.1,3.1,2.5,2.2,1.9,1.8,4.7,4.1,3.9,3.9],
-        [5.6,4.3,4.1,5.2,4.6,4.3,4.1,4.0,4.1,4.5,4.9,5.0],
-        [0,0,1.1,5.3,6.4,null,null,null,null,null,null,null], 10, fmtP));
-
-    // ANÁLISIS PILOTOS
+        [7.4,4.1,2.1,3.1,2.5,2.2,1.9,1.8,4.7,4.1,3.9,3.9],[5.6,4.3,4.1,5.2,4.6,4.3,4.1,4.0,4.1,4.5,4.9,5.0],[0,0,1.1,5.3,6.4,null,null,null,null,null,null,null],10,fmtP));
     new Chart(document.getElementById('evoPilotos').getContext('2d'), cfgEvo(
-        [1,2,4,4,5,5,6,8,8,8,8,8],
-        [1,2,2,3,3,4,5,6,7,8,9,10],
-        [2,2,3,3,7,null,null,null,null,null,null,null], 12, fmtN));
+        [1,2,4,4,5,5,6,8,8,8,8,8],[1,2,2,3,3,4,5,6,7,8,9,10],[2,2,3,3,7,null,null,null,null,null,null,null],12,fmtN));
+    new Chart(document.getElementById('evoConvPilotos').getContext('2d'), cfgEvo(
+        [11.1,8.2,6.4,6.3,5.7,5.0,4.8,5.3,7.8,6.9,6.6,6.5],[11.2,8.6,6.8,7.7,6.6,6.5,6.4,6.4,6.7,7.2,7.8,8.2],[8.7,4.3,3.2,5.3,9.6,null,null,null,null,null,null,null],14,fmtP));
 
     // ANÁLISIS REUNIONES
     new Chart(document.getElementById('evoReuTot').getContext('2d'), cfgEvo(
-        [27,49,94,128,159,179,210,226,258,291,305,310],
-        [18,46,74,116,153,186,220,249,269,291,309,319],
-        [23,46,93,113,125,null,null,null,null,null,null,null], 350, fmtN));
-
+        [27,49,94,128,159,179,210,226,258,291,305,310],[18,46,74,116,153,186,220,249,269,291,309,319],[23,46,93,113,125,null,null,null,null,null,null,null],350,fmtN));
     new Chart(document.getElementById('evoReuXL').getContext('2d'), cfgEvo(
-        [4,5,8,19,22,25,30,30,33,37,38,39],
-        [4,12,19,29,38,47,55,62,67,73,77,80],
-        [8,13,30,33,36,null,null,null,null,null,null,null], 90, fmtN));
-
+        [4,5,8,19,22,25,30,30,33,37,38,39],[4,12,19,29,38,47,55,62,67,73,77,80],[8,13,30,33,36,null,null,null,null,null,null,null],90,fmtN));
     new Chart(document.getElementById('evoReuL').getContext('2d'), cfgEvo(
-        [7,11,31,41,52,60,68,77,95,99,103,104],
-        [11,28,44,70,92,112,132,149,161,175,185,191],
-        [11,22,46,53,60,null,null,null,null,null,null,null], 210, fmtN));
-
+        [7,11,31,41,52,60,68,77,95,99,103,104],[11,28,44,70,92,112,132,149,161,175,185,191],[11,22,46,53,60,null,null,null,null,null,null,null],210,fmtN));
     new Chart(document.getElementById('evoReuSM').getContext('2d'), cfgEvo(
-        [16,33,55,68,85,94,112,119,130,155,164,167],
-        [3,7,11,17,23,28,33,37,40,44,46,48],
-        [4,11,17,27,29,null,null,null,null,null,null,null], 180, fmtN));
-
-    new Chart(document.getElementById('evoConvPilotos').getContext('2d'), cfgEvo(
-        [11.1,8.2,6.4,6.3,5.7,5.0,4.8,5.3,7.8,6.9,6.6,6.5],
-        [11.2,8.6,6.8,7.7,6.6,6.5,6.4,6.4,6.7,7.2,7.8,8.2],
-        [8.7,4.3,3.2,5.3,9.6,null,null,null,null,null,null,null], 14, fmtP));
+        [16,33,55,68,85,94,112,119,130,155,164,167],[3,7,11,17,23,28,33,37,40,44,46,48],[4,11,17,27,29,null,null,null,null,null,null,null],180,fmtN));
 </script>
 </body>
 </html>
